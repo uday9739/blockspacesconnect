@@ -1,0 +1,115 @@
+{
+  "id": "iamToken",
+  "groups": ["IBM", "Cloud", "IAM Token"],
+  "name": "IBM Cloud - IAM Token",
+  "type": "Authentication",
+  "description": "IBM Food Trust API's to get provenance history ",
+  "system": "ibmfoodtrust",
+  "specification": {
+    "openapi": "3.0.0",
+    "servers": [
+      {
+        "description": "IBM Cloud IAM Token Provider",
+        "url": "https://iam.cloud.ibm.com/",
+        "x-environment": "Development"
+      },
+      {
+        "description": "IBM Cloud IAM Token Provider",
+        "url": "https://iam.cloud.ibm.com/",
+        "x-environment": "Production"
+      }
+    ],
+    "info": {
+      "description": "IBM Cloud IAM API",
+      "version": "1.0.0",
+      "title": "IBM Cloud IAM API",
+      "contact": {
+        "email": "support@ibm.com"
+      },
+      "license": {
+        "name": "Apache 2.0",
+        "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+      }
+    },
+    "paths": {
+      "/identity/token": {
+        "post": {
+          "description": "Get an IAM Token",
+          "parameters": [],
+          "requestBody": {
+            "content": {
+              "application/x-www-form-urlencoded": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "grant_type": {
+                      "description": "Grant Type",
+                      "type": "string",
+                      "in":"query",
+                      "required": "true",
+                      "default": "urn:ibm:params:oauth:grant-type:apikey",
+                      "example": "urn:ibm:params:oauth:grant-type:apikey"
+                    },
+                    "apikey": {
+                      "description": "API Key",
+                      "type": "string",
+                      "in":"query",
+                      "required": "true",
+                      "example": "123456ABCDEF"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "search results matching criteria",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "object",
+                    "properties": {
+                      "access_token": {
+                        "type": "string",
+                        "description": "The Access Token"
+                      },
+                      "refresh_token": {
+                        "type": "string",
+                        "description": "The Refresh Token"
+                      },
+                      "token_type": {
+                        "type": "string",
+                        "description": "The type of Token",
+                        "example": "Bearer"
+                      },
+                      "expires_in": {
+                        "type": "number",
+                        "description": "The number of seconds before the token expires",
+                        "example": 3600
+                      },
+                      "expiration": {
+                        "type": "number",
+                        "description": "The timestamp of when the token expires",
+                        "example": 1632959014
+                      },
+                      "scope": {
+                        "type": "string",
+                        "description": "The scope of the token contents",
+                        "example": "ibm openid"
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "400": {
+              "description": "bad input parameter"
+            }
+          }
+        }
+      }
+    },
+    "components": {}
+  }
+}

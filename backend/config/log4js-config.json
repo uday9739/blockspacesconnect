@@ -1,0 +1,48 @@
+{
+  "appenders": {
+    "bscLogfile": {
+      "type": "file",
+      "filename": "./logs/bsc.log",
+      "layout": {
+        "type": "json",
+        "separator": ","
+      }
+    },
+    "stdout": {
+      "type": "stdout",
+      "layout": {
+        "type": "json",
+        "separator": ","
+      }
+    },
+    "stderr": {
+      "type": "stderr",
+      "layout": {
+        "type": "json",
+        "separator": ","
+      }
+    },
+    "bscTransactionLogfile": {
+      "type": "file",
+      "filename": "./logs/bscTransaction.log",
+      "layout": {
+        "type": "json",
+        "separator": ","
+      }
+    }
+  },
+  "categories": {
+    "default": {
+      "appenders": ["stdout","bscLogfile"],
+      "level": "debug"
+    },
+    "transaction": {
+      "appenders": ["bscTransactionLogfile","bscLogfile"],
+      "level": "info"
+    },
+    "all": {
+      "appenders": ["stdout","stderr","bscLogfile"],
+      "level": "all"
+    }
+  }
+}

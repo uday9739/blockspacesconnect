@@ -1,0 +1,14 @@
+{
+  "extends":"../tsconfig.json",
+  "compilerOptions": {
+    "outDir": "./dist",
+    "composite": true,
+    "incremental": true,
+    "strict": false,
+    "skipLibCheck": false,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true
+  },
+  "include": ["**/**.ts"],
+  "exclude": ["node_modules", "__archive__"]
+}

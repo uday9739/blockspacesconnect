@@ -1,0 +1,12 @@
+{
+  "trailingComma": "es5",
+  "semi": true,
+  "printWidth": 200,
+  "tabWidth": 2,
+  "endOfLine": "auto",
+  "singleQuote": false,
+  "bracketSpacing": false,
+  "useTabs": false,
+  "arrowParens": "always",
+  "plugins": ["prettier-plugin-jsdoc"]
+}

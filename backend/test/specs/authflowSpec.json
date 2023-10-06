@@ -1,0 +1,93 @@
+{
+  "_id": {
+    "$oid": "61688d65a3729c4966767b7d"
+  },
+  "groups": [
+    "IBM",
+    "Food Trust",
+    "IFT Token"
+  ],
+  "id": "iftToken",
+  "name": "IBM Food Trust - Token",
+  "type": "Subflow",
+  "subType":"Authflow",
+  "description": "IBM Food Trust get IFT Token",
+  "system": "ibmfoodtrust",
+  "servers": [
+    {
+      "x-environment": "Production",
+      "_id": {
+        "$oid": "61688d65a3729c4966767b7e"
+      },
+      "url": "https://food.ibm.com/ift/api"
+    },
+    {
+      "x-environment": "Development",
+      "_id": {
+        "$oid": "61688d65a3729c4966767b7f"
+      },
+      "url": "https://developer.food.ibm.com/ift/api"
+    }
+  ],
+  "specification_raw": "{\"openapi\":\"3.0.0\",\"servers\":[{\"url\":\"https://food.ibm.com/ift/api\",\"description\":\"Food Trust Production Server\",\"x-environment\":\"Production\"},{\"url\":\"https://developer.food.ibm.com/ift/api\",\"description\":\"Food Trust Development Server\",\"x-environment\":\"Development\"}],\"info\":{\"description\":\"IBM Food Trust API\",\"version\":\"1.0.0\",\"title\":\"IBM Food Trust API\",\"contact\":{\"email\":\"support@ibm.com\"},\"license\":{\"name\":\"Apache 2.0\",\"url\":\"http://www.apache.org/licenses/LICENSE-2.0.html\"}},\"paths\":{\"/identity-proxy/exchange_token/v1/organization/{org_id}\":{\"post\":{\"description\":\"Exchange IAM Token for a Food Trust token\",\"parameters\":[{\"in\":\"path\",\"name\":\"org_id\",\"description\":\"Organization\",\"required\":true,\"schema\":{\"type\":\"string\",\"example\":\"123456798\"}},{\"in\":\"query\",\"name\":\"access_token\",\"required\":true,\"description\":\"IBM IAM Access Token\",\"schema\":{\"type\":\"string\",\"example\":\"123456ABCDEF\"}}],\"responses\":{\"200\":{\"description\":\"Food Trust token\",\"content\":{\"application/json\":{\"schema\":{\"type\":\"object\",\"properties\":{\"onboarding_token\":{\"type\":\"string\",\"description\":\"The Food Trust Token\"}}}}}},\"400\":{\"description\":\"bad input parameter\"}}}}},\"components\":{}}",
+  "specification_dereferenced": "{\"openapi\":\"3.0.0\",\"servers\":[{\"url\":\"https://food.ibm.com/ift/api\",\"description\":\"Food Trust Production Server\",\"x-environment\":\"Production\"},{\"url\":\"https://developer.food.ibm.com/ift/api\",\"description\":\"Food Trust Development Server\",\"x-environment\":\"Development\"}],\"info\":{\"description\":\"IBM Food Trust API\",\"version\":\"1.0.0\",\"title\":\"IBM Food Trust API\",\"contact\":{\"email\":\"support@ibm.com\"},\"license\":{\"name\":\"Apache 2.0\",\"url\":\"http://www.apache.org/licenses/LICENSE-2.0.html\"}},\"paths\":{\"/identity-proxy/exchange_token/v1/organization/{org_id}\":{\"post\":{\"description\":\"Exchange IAM Token for a Food Trust token\",\"parameters\":[{\"in\":\"path\",\"name\":\"org_id\",\"description\":\"Organization\",\"required\":true,\"schema\":{\"type\":\"string\",\"example\":\"123456798\"}},{\"in\":\"query\",\"name\":\"access_token\",\"required\":true,\"description\":\"IBM IAM Access Token\",\"schema\":{\"type\":\"string\",\"example\":\"123456ABCDEF\"}}],\"responses\":{\"200\":{\"description\":\"Food Trust token\",\"content\":{\"application/json\":{\"schema\":{\"type\":\"object\",\"properties\":{\"onboarding_token\":{\"type\":\"string\",\"description\":\"The Food Trust Token\"}}}}}},\"400\":{\"description\":\"bad input parameter\"}}}}},\"components\":{}}",
+  "specification_processed": [
+    {
+      "name": "/identity-proxy/exchange_token/v1/organization/{org_id}",
+      "methods": [
+        {
+          "method": "POST",
+          "description": "Exchange IAM Token for a Food Trust token",
+          "contentType": "application/json",
+          "security": [],
+          "parameters": [
+            {
+              "name": "org_id",
+              "description": "Organization",
+              "in": "path",
+              "type": "string",
+              "required": true,
+              "example": "Example org_id"
+            },
+            {
+              "name": "access_token",
+              "description": "IBM IAM Access Token",
+              "in": "query",
+              "type": "string",
+              "required": true,
+              "example": "Example access_token"
+            }
+          ],
+          "responses": [
+            {
+              "responseCode": "200",
+              "description": "Food Trust token",
+              "parameters": [
+                {
+                  "name": "onboarding_token",
+                  "description": "The Food Trust Token",
+                  "in": "",
+                  "type": "string",
+                  "required": false,
+                  "example": "Example onboarding_token"
+                }
+              ]
+            },
+            {
+              "responseCode": "400",
+              "description": "bad input parameter",
+              "parameters": []
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "createdAt": {
+    "$date": "2021-10-14T20:04:53.266Z"
+  },
+  "updatedAt": {
+    "$date": "2021-10-14T20:04:53.266Z"
+  },
+  "__v": 0
+}

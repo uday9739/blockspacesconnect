@@ -1,0 +1,15 @@
+{
+  "extends":"../tsconfig.json",
+  "compilerOptions": {
+    "outDir": "dist",
+    "plugins": [
+      {
+        "transform": "ts-auto-mock/transformer",
+        "cacheBetweenTests": false
+      }
+    ]
+  },
+  "include": ["./src/**/*.ts","test", "test/.ts"],
+  "exclude": ["node_modules", "./dist/**/*", "./test/**/*"],
+  "references": [{"path": "../shared"}]
+}

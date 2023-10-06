@@ -1,0 +1,89 @@
+{
+  "username": "randy@blockspaces.com",
+  "loginResponse": {
+    "status": "success",
+    "token": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyZDZkN2Y3YjM3YjhlMDAzOTMzODc3YyIsImlhdCI6MTY1ODI0ODU2OSwiZXhwIjoxNjU5MTEyNTY5fQ.F7Veq5pWABUXawSDnDV-UiRTszN3ttL9clX4OvpvldL3fFIIGoxcCkp0FaGhvo69w9CJKIVJZMm663Z3-IgRR_43R2eBtd2fEQAxfwAsImTOHaiV5sBvOQOzDGWnsNDktXJekpTDyRSgLyvc0z-heM3sa9j43UmKeFARF1dZkkQ",
+    "data": {
+      "user": {
+        "_id": "62d6d7f7b37b8e003933877c",
+        "email": "randy@blockspaces.com",
+        "username": "randy@blockspaces.com",
+        "password": "$2a$10$Czg.87.955FCUWFrLnUbxeWqKZ5Hm/rGEz1iiF93l/2mWli7K/bMu",
+        "validated": true,
+        "v2": true,
+        "__v": 0
+      }
+    }
+  },
+  "createAppData": {
+    "appName": "customAppName",
+    "gatewaySettings": {
+      "whitelistOrigins": [],
+      "whitelistUserAgents": [],
+      "whitelistContracts": [],
+      "whitelistMethods": [],
+      "whitelistBlockchains": []
+    }
+  },
+  "updateAppData": {
+    "gatewaySettings": {
+      "whitelistOrigins": ["192.168. 1.1"],
+      "whitelistUserAgents": [],
+      "whitelistContracts": [],
+      "whitelistMethods": [],
+      "whitelistBlockchains": []
+    }
+  },
+  "createAppResponse": {
+    "chain": "",
+    "createdAt": "2022-07-19T16:50:06.560Z",
+    "updatedAt": "2022-07-19T16:50:06.480Z",
+    "name": "customAppName",
+    "id": "62d6e0beb37b8e003933917f",
+    "freeTier": true,
+    "gigastake": true,
+    "status": "IN_SERVICE",
+    "apps": [
+      {
+        "appId": "62d6e0beb37b8e003933917d",
+        "address": "14ba3e82ece42747ed023507917f1c1e4497dbf0",
+        "publicKey": "4ce3f05f6fb0d96ff528dfd7dc8b682175b9bd92bca097ec234369d78e85cc46"
+      }
+    ],
+    "user": "62d6d7f7b37b8e003933877c",
+    "gatewaySettings": {
+      "whitelistOrigins": [],
+      "whitelistUserAgents": [],
+      "whitelistContracts": [],
+      "whitelistMethods": [],
+      "whitelistBlockchains": [],
+      "secretKeyRequired": false,
+      "secretKey": "bbead883afd57f8e6bb04b2d8510db81"
+    },
+    "notificationSettings": {
+      "signedUp": false,
+      "quarter": false,
+      "half": false,
+      "threeQuarters": true,
+      "full": true
+    }
+  },
+  "AuthenticateUserAccountResponse": {
+    "isFailure": false,
+    "data": {
+      "status": "success",
+      "token": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyZDZkN2Y3YjM3YjhlMDAzOTMzODc3YyIsImlhdCI6MTY1ODI0ODU2OSwiZXhwIjoxNjU5MTEyNTY5fQ.F7Veq5pWABUXawSDnDV-UiRTszN3ttL9clX4OvpvldL3fFIIGoxcCkp0FaGhvo69w9CJKIVJZMm663Z3-IgRR_43R2eBtd2fEQAxfwAsImTOHaiV5sBvOQOzDGWnsNDktXJekpTDyRSgLyvc0z-heM3sa9j43UmKeFARF1dZkkQ",
+      "data": {
+        "user": {
+          "_id": "62d6d7f7b37b8e003933877c",
+          "email": "randyfuentes1987@gmail.com",
+          "username": "randyfuentes1987@gmail.com",
+          "password": "$2a$10$Czg.87.955FCUWFrLnUbxeWqKZ5Hm/rGEz1iiF93l/2mWli7K/bMu",
+          "validated": true,
+          "v2": true,
+          "__v": 0
+        }
+      }
+    }
+  }
+}

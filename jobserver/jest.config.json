@@ -1,0 +1,27 @@
+{
+  "preset": "ts-jest",
+  "rootDir": ".",
+  "testPathIgnorePatterns": [
+    "<rootDir>/node_modules/"
+  ],
+  "globals": {
+    "ts-jest": {
+      "tsconfig": "<rootDir>/tsconfig.json",
+      "compiler": "ttypescript"
+    }
+  },
+  "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(ts|tsx|js)$",
+  "moduleFileExtensions": [
+    "ts",
+    "tsx",
+    "js",
+    "json"
+  ],
+  "testEnvironment": "node",
+  "transform": {
+    ".(ts|tsx)": "ts-jest"
+  },
+  "setupFiles": [
+  "<rootDir>config.ts"
+]
+}

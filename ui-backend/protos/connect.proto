@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package blockspaces;
+
+service Connect {
+    rpc Send(Request) returns (Response) {};
+}
+
+message Empty {
+}
+
+message Request {
+  string id=1;
+  bytes data=2;
+}
+
+message Response {
+  bytes data=1;
+}

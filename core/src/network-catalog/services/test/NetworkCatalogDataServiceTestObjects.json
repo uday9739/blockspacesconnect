@@ -1,0 +1,370 @@
+{
+  "lightningNetworkPricesResult":[
+    {
+      "_id": {
+        "$oid": "6319f476d0a3d009c1d2eecf"
+      },
+      "network": "lightning",
+      "active": true,
+      "stripeId": "price_1LfOhfDwwP2dBiY2VPyIOxFd",
+      "__v": 0
+    },
+    {
+      "_id": {
+        "$oid": "6319f6f601cfbda85cbcac06"
+      },
+      "network": "lightning",
+      "active": true,
+      "stripeId": "price_1LfOr7DwwP2dBiY2FUjsRCr7",
+      "__v": 0
+    },
+    {
+      "_id": {
+        "$oid": "6319f6f601cfbda85cbcac08"
+      },
+      "network": "lightning",
+      "active": true,
+      "stripeId": "price_1LfOkEDwwP2dBiY2nTj5I2QB",
+      "__v": 0
+    },
+    {
+      "_id": {
+        "$oid": "6319f6f601cfbda85cbcac07"
+      },
+      "network": "lightning",
+      "active": true,
+      "stripeId": "price_1LfOndDwwP2dBiY2nKj8b9rY",
+      "__v": 0
+    }
+  ],
+  "listPricesForLightningSuccess":{
+    "status": "success",
+    "data": [
+      {
+          "id": "price_1LfOr7DwwP2dBiY2FUjsRCr7",
+          "object": "price",
+          "active": true,
+          "billing_scheme": "per_unit",
+          "created": 1662559433,
+          "currency": "usd",
+          "custom_unit_amount": null,
+          "livemode": false,
+          "lookup_key": null,
+          "metadata": {
+              "isDefault": "true",
+              "network": "lightning",
+              "offer": "Standard"
+          },
+          "nickname": "QuickBooks Integration Standard Monthly",
+          "product": {
+              "id": "prod_Law80PXyLdTynh",
+              "object": "product",
+              "active": true,
+              "attributes": [],
+              "created": 1651201965,
+              "default_price": "price_1LfOhfDwwP2dBiY2VPyIOxFd",
+              "description": null,
+              "images": [
+                  "https://files.stripe.com/links/MDB8YWNjdF8xS3RmclVEd3dQMmRCaVkyfGZsX3Rlc3RfcExtMVIzaUtqRTRUak41MUV2SEVOdmJD00JaYjGo7E"
+              ],
+              "livemode": false,
+              "metadata": {
+                  "Category": "Managed Blockchain",
+                  "Cloud Provider": "Digital Ocean",
+                  "Minimum Quantity": "1",
+                  "Network": "Lightning",
+                  "Options": "Cloud Provider",
+                  "connectId": "lightning"
+              },
+              "name": "Lightning Network",
+              "package_dimensions": null,
+              "shippable": null,
+              "statement_descriptor": null,
+              "tax_code": null,
+              "type": "service",
+              "unit_label": null,
+              "updated": 1662559433,
+              "url": null
+          },
+          "recurring": {
+              "aggregate_usage": null,
+              "interval": "month",
+              "interval_count": 1,
+              "trial_period_days": null,
+              "usage_type": "licensed"
+          },
+          "tax_behavior": "unspecified",
+          "tiers_mode": null,
+          "transform_quantity": null,
+          "type": "recurring",
+          "unit_amount": 20000,
+          "unit_amount_decimal": "20000"
+      },
+      {
+          "id": "price_1LfOndDwwP2dBiY2nKj8b9rY",
+          "object": "price",
+          "active": true,
+          "billing_scheme": "per_unit",
+          "created": 1662559217,
+          "currency": "usd",
+          "custom_unit_amount": null,
+          "livemode": false,
+          "lookup_key": null,
+          "metadata": {
+              "network": "lightning",
+              "offer": "Standard"
+          },
+          "nickname": "Liquidity Renting Standard Monthly",
+          "product": {
+              "id": "prod_Law80PXyLdTynh",
+              "object": "product",
+              "active": true,
+              "attributes": [],
+              "created": 1651201965,
+              "default_price": "price_1LfOhfDwwP2dBiY2VPyIOxFd",
+              "description": null,
+              "images": [
+                  "https://files.stripe.com/links/MDB8YWNjdF8xS3RmclVEd3dQMmRCaVkyfGZsX3Rlc3RfcExtMVIzaUtqRTRUak41MUV2SEVOdmJD00JaYjGo7E"
+              ],
+              "livemode": false,
+              "metadata": {
+                  "Category": "Managed Blockchain",
+                  "Cloud Provider": "Digital Ocean",
+                  "Minimum Quantity": "1",
+                  "Network": "Lightning",
+                  "Options": "Cloud Provider",
+                  "connectId": "lightning"
+              },
+              "name": "Lightning Network",
+              "package_dimensions": null,
+              "shippable": null,
+              "statement_descriptor": null,
+              "tax_code": null,
+              "type": "service",
+              "unit_label": null,
+              "updated": 1662559433,
+              "url": null
+          },
+          "recurring": {
+              "aggregate_usage": null,
+              "interval": "month",
+              "interval_count": 1,
+              "trial_period_days": null,
+              "usage_type": "licensed"
+          },
+          "tax_behavior": "unspecified",
+          "tiers_mode": null,
+          "transform_quantity": null,
+          "type": "recurring",
+          "unit_amount": 2000,
+          "unit_amount_decimal": "2000"
+      },
+      {
+          "id": "price_1LfOkEDwwP2dBiY2nTj5I2QB",
+          "object": "price",
+          "active": true,
+          "billing_scheme": "tiered",
+          "created": 1662559006,
+          "currency": "usd",
+          "custom_unit_amount": null,
+          "livemode": false,
+          "lookup_key": null,
+          "metadata": {
+              "network": "lightning",
+              "offer": "Standard"
+          },
+          "nickname": "Transaction Fee Standard Monthly",
+          "product": {
+              "id": "prod_Law80PXyLdTynh",
+              "object": "product",
+              "active": true,
+              "attributes": [],
+              "created": 1651201965,
+              "default_price": "price_1LfOhfDwwP2dBiY2VPyIOxFd",
+              "description": null,
+              "images": [
+                  "https://files.stripe.com/links/MDB8YWNjdF8xS3RmclVEd3dQMmRCaVkyfGZsX3Rlc3RfcExtMVIzaUtqRTRUak41MUV2SEVOdmJD00JaYjGo7E"
+              ],
+              "livemode": false,
+              "metadata": {
+                  "Category": "Managed Blockchain",
+                  "Cloud Provider": "Digital Ocean",
+                  "Minimum Quantity": "1",
+                  "Network": "Lightning",
+                  "Options": "Cloud Provider",
+                  "connectId": "lightning"
+              },
+              "name": "Lightning Network",
+              "package_dimensions": null,
+              "shippable": null,
+              "statement_descriptor": null,
+              "tax_code": null,
+              "type": "service",
+              "unit_label": null,
+              "updated": 1662559433,
+              "url": null
+          },
+          "recurring": {
+              "aggregate_usage": "sum",
+              "interval": "month",
+              "interval_count": 1,
+              "trial_period_days": null,
+              "usage_type": "metered"
+          },
+          "tax_behavior": "unspecified",
+          "tiers_mode": "graduated",
+          "transform_quantity": null,
+          "type": "recurring",
+          "unit_amount": null,
+          "unit_amount_decimal": null
+      },
+      {
+          "id": "price_1LfOhfDwwP2dBiY2VPyIOxFd",
+          "object": "price",
+          "active": true,
+          "billing_scheme": "per_unit",
+          "created": 1662558847,
+          "currency": "usd",
+          "custom_unit_amount": null,
+          "livemode": false,
+          "lookup_key": null,
+          "metadata": {
+              "network": "lightning",
+              "offer": "Standard"
+          },
+          "nickname": "Service Fee Standard Monthly",
+          "product": {
+              "id": "prod_Law80PXyLdTynh",
+              "object": "product",
+              "active": true,
+              "attributes": [],
+              "created": 1651201965,
+              "default_price": "price_1LfOhfDwwP2dBiY2VPyIOxFd",
+              "description": null,
+              "images": [
+                  "https://files.stripe.com/links/MDB8YWNjdF8xS3RmclVEd3dQMmRCaVkyfGZsX3Rlc3RfcExtMVIzaUtqRTRUak41MUV2SEVOdmJD00JaYjGo7E"
+              ],
+              "livemode": false,
+              "metadata": {
+                  "Category": "Managed Blockchain",
+                  "Cloud Provider": "Digital Ocean",
+                  "Minimum Quantity": "1",
+                  "Network": "Lightning",
+                  "Options": "Cloud Provider",
+                  "connectId": "lightning"
+              },
+              "name": "Lightning Network",
+              "package_dimensions": null,
+              "shippable": null,
+              "statement_descriptor": null,
+              "tax_code": null,
+              "type": "service",
+              "unit_label": null,
+              "updated": 1662559433,
+              "url": null
+          },
+          "recurring": {
+              "aggregate_usage": null,
+              "interval": "month",
+              "interval_count": 1,
+              "trial_period_days": null,
+              "usage_type": "licensed"
+          },
+          "tax_behavior": "unspecified",
+          "tiers_mode": null,
+          "transform_quantity": null,
+          "type": "recurring",
+          "unit_amount": 3000,
+          "unit_amount_decimal": "3000"
+      }
+  ]
+},
+  "lightningNetworkResult":{
+    "_id": "lightning",
+    "name": "Lightning Network",
+    "logo": "/images/light-lightningnetwork.png",
+    "description": "Lightning Fast, Low-Fee, Payments & Invoicing"
+},
+"networkPricesResults":[
+    {
+      "_id": "new ObjectId(\"6310f3976647cc007b9103c3\")",
+      "network": {
+        "_id": "optimism",
+        "name": "Optimism Network",
+        "logo": "/images/light-optimismnetwork.png",
+        "description":""
+    },
+      "active": true,
+      "stripeId": "price_1LZbAkKTmr221wA7zFF1G6Nl"
+    },
+    {
+      "_id": "new ObjectId(\"6310f4d29053c0094b25427e\")",
+      "network": {
+        "_id": "optimism",
+        "name": "Optimism Network",
+        "logo": "/images/light-optimismnetwork.png",
+        "description": ""
+      },
+      "active": true,
+      "stripeId": "price_1LZb2fKTmr221wA75HRzgdSI"
+    }
+  ],
+ "listPricesByConnectNetworkIdSuccess":{
+    "status": "success",
+    "data": [
+        {
+            "id": "price_1LZb2fKTmr221wA75HRzgdSI",
+            "object": "price",
+            "active": true,
+            "billing_scheme": "per_unit",
+            "created": 1661176309,
+            "currency": "usd",
+            "custom_unit_amount": null,
+            "livemode": false,
+            "lookup_key": null,
+            "metadata": {
+                "tier": "Enterprise",
+                "connectId": "5b27b7cc-2562-11ed-861d-0242ac120002",
+                "network": "optimism"
+            },
+            "nickname": "Optimism Enterprise Yearly",
+            "product": {
+                "id": "prod_MIBPx3Tg9fScKn",
+                "object": "product",
+                "active": true,
+                "attributes": [],
+                "created": 1661176308,
+                "default_price": "price_1LZb2fKTmr221wA75HRzgdSI",
+                "description": null,
+                "images": [],
+                "livemode": false,
+                "metadata": {
+                    "connectId": "50490882-2563-11ed-861d-0242ac120002"
+                },
+                "name": "Developer Endpoint",
+                "package_dimensions": null,
+                "shippable": null,
+                "statement_descriptor": null,
+                "tax_code": null,
+                "type": "service",
+                "unit_label": null,
+                "updated": 1661534407,
+                "url": null
+            },
+            "recurring": {
+                "aggregate_usage": null,
+                "interval": "year",
+                "interval_count": 1,
+                "trial_period_days": null,
+                "usage_type": "licensed"
+            },
+            "tax_behavior": "unspecified",
+            "tiers_mode": null,
+            "transform_quantity": null,
+            "type": "recurring",
+            "unit_amount": 55000,
+            "unit_amount_decimal": "55000"
+        }
+    ]
+}
+}

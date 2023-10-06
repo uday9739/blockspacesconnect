@@ -1,0 +1,32 @@
+{
+  "extends":"ts-node/node16/tsconfig.json",
+  "compilerOptions": {
+    "target": "es6",
+    "strict": true,
+    "esModuleInterop": true,
+    "module":"CommonJS",
+    "moduleResolution": "node",
+    "allowJs": true,
+    "lib":["ESNext","dom"],
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule":true,
+    "sourceMap": true,
+    "declaration": true,
+    "declarationMap": true,
+
+  },
+  "ts-node": {
+    // It is faster to skip typechecking.
+    // Remove if you want ts-node to do typechecking.
+    "transpileOnly": true,
+    "files": true,
+    "compilerOptions": {
+      // compilerOptions specified here will override those declared below,
+      // but *only* in ts-node.  Useful if you want ts-node and tsc to use
+      // different options with a single tsconfig.json.
+      "esModuleInterop": true,
+      "target": "ESNext",
+      "module": "ESNext"
+    }
+  },
+}

@@ -1,0 +1,134 @@
+{
+  "id": "d365foToken",
+  "groups": ["Microsoft", "Dynamics 365 F&O", "D365FO Token"],
+  "name": "Microsoft Dynamics 365 F&O - Dynamics 365 F&O Token",
+  "type": "Authentication",
+  "description": "Microsoft Dynamics 365 F&O get Token",
+  "system": "Microsoft",
+  "specification": {
+    "openapi": "3.0.0",
+    "servers": [
+      {
+        "url": "https://login.microsoftonline.com/{tenant_id}/oauth2/token",
+        "x-environment": "Development"
+      }
+    ],
+    "info": {
+      "description": "Microsoft Dynamics 365 F&O Token API",
+      "version": "1.0.0",
+      "title": "Microsoft Dynamics 365 F&O Token API",
+      "contact": {
+        "email": "support@microsoft.com"
+      },
+      "license": {
+        "name": "Apache 2.0",
+        "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+      }
+    },
+    "paths": {
+      "/token": {
+        "post": {
+          "description": "Request a Microsoft Token",
+          "parameters": [
+            {
+              "in": "path",
+              "name": "tenant_id",
+              "description": "Tenant ID",
+              "required": true,
+              "schema": {
+                "type": "string",
+                "example": "3985830-38af-fasjf8kk-325352453"
+              }
+            },
+            {
+              "in": "query",
+              "name": "grant_type",
+              "description": "Grant Type",
+              "required": true,
+              "schema": {
+                "type": "string",
+                "example": "client_credentials"
+              }
+            },
+            {
+              "in": "query",
+              "name": "client_id",
+              "required": true,
+              "description": "Client ID",
+              "schema": {
+                "type": "string",
+                "example": "3985830-38af-fasjf8kk-325352453"
+              }
+            },
+            {
+              "in": "query",
+              "name": "client_secret",
+              "required": true,
+              "description": "Client Secret",
+              "schema": {
+                "type": "string",
+                "example": "3985830~dfla989wertjkj99afkjjlj-9"
+              }
+            },
+            {
+              "in": "query",
+              "name": "resource",
+              "description": "Your D365 F&O Endpoint",
+              "required": true,
+              "schema": {
+                "type": "string",
+                "example": "https://companyname-fo.domain.com"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Dynamics 365 F&O token",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "object",
+                    "properties": {
+                      "access_token": {
+                        "type": "string",
+                        "description": "The Dynamics 365 F&O Token"
+                      },
+                      "token_type": {
+                        "type": "string",
+                        "description": "The type of token, generally Bearer"
+                      },
+                      "expires_in": {
+                        "type": "string",
+                        "description": "The number of seconds that the token will expire in"
+                      },
+                      "ext_expires_in": {
+                        "type": "string",
+                        "description": "The number of seconds before the refresh token expires"
+                      },
+                      "expires_on": {
+                        "type": "string",
+                        "description": "The Unix timestamp of when the token expires"
+                      },
+                      "not_before": {
+                        "type": "string",
+                        "description": "The Unix timestamp that prohibits use of the token before"
+                      },
+                      "resource": {
+                        "type": "string",
+                        "description": "The resource the token is allowed to use"
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "400": {
+              "description": "bad input parameter"
+            }
+          }
+        }
+      }
+    },
+    "components": {}
+  }
+}

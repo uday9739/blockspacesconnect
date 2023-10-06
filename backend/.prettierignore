@@ -1,0 +1,8 @@
+# .prettierignore
+
+config
+logs
+node_module
+protos
+package-lock.json
+.eslintrc.json

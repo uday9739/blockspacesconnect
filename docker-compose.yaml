@@ -1,0 +1,102 @@
+version: "3"
+services:
+  bsc-mongo:
+    image: mongo:4.4.13
+    container_name: "bsc-mongo"
+    restart: always
+    ports:
+      - "${MONGO_PORT:-27017}:27017"
+    expose:
+      - "27017"
+    env_file:
+      - ./mongodb/.env
+    volumes:
+      - ./mongodb/data:/data/db
+      - ./mongodb/init:/docker-entrypoint-initdb.d/
+      - ./mongodb/scripts:/scripts
+    networks:
+      - bsc
+    entrypoint: [ "/usr/bin/mongod", "--bind_ip_all", "--replSet","rs0" ]
+
+  bsc-rproxy:
+    container_name: bsc-rproxy
+    image: nginx
+    volumes:
+      - ./nginx/config/templates:/etc/nginx/templates
+      - ./nginx/ssl:/etc/ssl/certs/bsc
+    env_file:
+      - ./nginx/.env
+    ports:
+      - 443:443
+    networks:
+      - bsc
+      - bsplt
+    restart: always
+
+  bsc-core:
+    image: blockspacesteam/bsc-core:${DOCKER_TAG}-${ENVIRONMENT}
+    profiles: ["core"]
+    tty: true
+    stdin_open: true
+    platform: linux/amd64
+    container_name: bsc-core
+    build:
+      context: ./
+      dockerfile: core/Dockerfile
+    ports:
+      - "3000:3000"
+    env_file:
+      - ./core/.env
+    expose:
+      - "3000"
+    networks:
+      - bsc
+    restart: always
+    volumes:
+      - ./core/logs:/blockspaces/core/logs
+    depends_on:
+      - bsc-mongo
+      - bsc-rproxy
+
+  bsc-frontend:
+    image: blockspacesteam/bsc-frontend:${DOCKER_TAG}-${ENVIRONMENT}
+    profiles: ["legacy","core"]
+    tty: true
+    stdin_open: true
+    platform: linux/amd64
+    container_name: bsc-frontend
+    build:
+      context: ./
+      dockerfile: frontend/connect-ui/Dockerfile
+      args:
+        API_URL: ${API_URL}
+        HOST_URL: ${HOST_URL}
+        DEMO_LIGHTNING_NODE: ${DEMO_LIGHTNING_NODE}
+        SERVICE_NOW_URL: ${SERVICE_NOW_URL}
+        DATADOG_APP_ID: ${DATADOG_APP_ID}
+        DATADOG_CLIENT_TOKEN: ${DATADOG_CLIENT_TOKEN}
+        NEXT_PUBLIC_GOOGLE_RECAPTCHA_KEY: ${NEXT_PUBLIC_GOOGLE_RECAPTCHA_KEY}
+        NEXT_PUBLIC_GA_MEASUREMENT_ID: ${NEXT_PUBLIC_GA_MEASUREMENT_ID}
+    ports:
+      - "3001:3001"
+    expose:
+      - "3001"
+    networks:
+      - bsc
+    env_file:
+      - ./frontend/connect-ui/.env
+    depends_on:
+      - bsc-rproxy
+      - bsc-core
+  
+  stripe-cli:
+    image: stripe/stripe-cli:latest
+    container_name: stripe-cli
+    command: >-
+      listen --api-key sk_test_51KtfrUDwwP2dBiY2eAjJye7UmaKjtRRWd1gSIgNyjkaIKg7yrr0CqOcSQcn2KJwZWYa2ilga28zJmcwjxo1uP8hv00MEpx6T9O
+      --forward-to host.docker.internal:3000/api/stripe/integration
+    networks:
+      - bsc
+networks:
+  bsc:
+  bsplt:

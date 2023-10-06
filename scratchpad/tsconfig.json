@@ -1,0 +1,37 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "target": "ESNext",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": false,
+    "forceConsistentCasingInFileNames": false,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "useDefineForClassFields": true,
+    "tsBuildInfoFile": ".tsbuildinfo",
+    "incremental": true,
+    "experimentalDecorators": true,
+    "sourceMap": true,
+
+    "paths": {
+      "@blockspaces/shared/*": ["../shared/*"]
+    }
+  },
+  "include": [
+    "**/*.ts",
+    "**/*.tsx"
+  ],
+  "exclude": [
+    "node_modules",
+    "**/*test.ts",
+    "**/*test.tsx",
+    "**/*stories.tsx",
+  ]
+}

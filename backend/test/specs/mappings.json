@@ -1,0 +1,8 @@
+[
+  {
+    "type": "string",
+    "sourceField": "1:0:bcaea3c0-d8f7-4074-a43c-b74bf5a1cdae:GET:/products:200:next.href:string",
+    "destinationField": "2:0:0b99ea21-8adb-4599-94b2-85b82d64df7e:GET:/response:href:string",
+    "transformation": ""
+  }
+]

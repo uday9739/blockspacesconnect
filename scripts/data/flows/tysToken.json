@@ -1,0 +1,247 @@
+{
+  "_id": {
+    "$oid": "61b0fb53f3a9609dea80e33a"
+  },
+  "name": "tysToken",
+  "parentId": [],
+  "isAuthFlow": true,
+  "steps": [
+    [
+      {
+        "id": "df052dfb-a58d-4914-9c5b-ff256264a327",
+        "connectorId": "initialdata",
+        "description": "",
+        "type": "Initial",
+        "activeMethod": {
+          "name": "/init",
+          "description": "",
+          "method": "GET",
+          "contentType": "application/json",
+          "parameters": [],
+          "responses": [
+            {
+              "responseCode": "INIT",
+              "description": "INIT",
+              "parameters": [
+                {
+                  "name": "client_id",
+                  "description": "",
+                  "in": "",
+                  "type": "string",
+                  "required": false
+                },
+                {
+                  "name": "client_secret",
+                  "description": "",
+                  "in": "",
+                  "type": "string",
+                  "required": false
+                },
+                {
+                  "name": "username",
+                  "description": "",
+                  "in": "",
+                  "type": "string",
+                  "required": false
+                },
+                {
+                  "name": "password",
+                  "description": "",
+                  "in": "",
+                  "type": "string",
+                  "required": false
+                }
+              ]
+            }
+          ]
+        }
+      }
+    ],
+    [
+      {
+        "id": "fa337d38-4b0b-49e6-be77-5e334bb8e763",
+        "connectorId": "tysToken",
+        "description": "Chainyard Trust Your Supplier get TYS Token",
+        "type": "Authentication",
+        "activeMethod": {
+          "name": "/token",
+          "method": "POST",
+          "description": "Exchange IAM Token for a Food Trust token",
+          "contentType": "application/json",
+          "parameters": [
+            {
+              "name": "client_id",
+              "description": "Client ID",
+              "in": "query",
+              "type": "string",
+              "required": true,
+              "example": "Example client_id"
+            },
+            {
+              "name": "client_secret",
+              "description": "Client Secret",
+              "in": "query",
+              "type": "string",
+              "required": true,
+              "example": "Example client_secret"
+            },
+            {
+              "name": "username",
+              "description": "Username",
+              "in": "query",
+              "type": "string",
+              "required": true,
+              "example": "Example username"
+            },
+            {
+              "name": "password",
+              "description": "Password",
+              "in": "query",
+              "type": "string",
+              "required": true,
+              "example": "Example password"
+            }
+          ],
+          "responses": [
+            {
+              "responseCode": "200",
+              "description": "Trust Your Supplier token",
+              "parameters": [
+                {
+                  "name": "access_token",
+                  "description": "The Trust Your Supplier Token",
+                  "in": "",
+                  "type": "string",
+                  "required": false,
+                  "example": "Example access_token"
+                }
+              ]
+            },
+            {
+              "responseCode": "400",
+              "description": "bad input parameter",
+              "parameters": []
+            }
+          ]
+        },
+        "server": {
+          "x-environment": "Development",
+          "_id": "61b0f5d2f3a9609dea80e2ef",
+          "url": "https://integration-gateway.slyncer.com/v1/oauth2"
+        },
+        "credential": {}
+      }
+    ],
+    [
+      {
+        "id": "382f857e-0417-4460-aee0-df4c8cb23a07",
+        "connectorId": "response",
+        "description": "",
+        "type": "Response",
+        "activeMethod": {
+          "name": "/response",
+          "description": "",
+          "method": "GET",
+          "contentType": "application/json",
+          "parameters": [
+            {
+              "name": "token",
+              "description": "",
+              "in": "",
+              "type": "string",
+              "required": false
+            }
+          ],
+          "responses": []
+        }
+      }
+    ]
+  ],
+  "mappings": [
+    {
+      "source": {
+        "connectionId": "df052dfb-a58d-4914-9c5b-ff256264a327",
+        "method": "GET",
+        "endpoint": "/init",
+        "responseCode": "INIT",
+        "path": "client_id"
+      },
+      "destination": {
+        "connectionId": "fa337d38-4b0b-49e6-be77-5e334bb8e763",
+        "method": "POST",
+        "endpoint": "/token",
+        "path": "client_id"
+      }
+    },
+    {
+      "source": {
+        "connectionId": "df052dfb-a58d-4914-9c5b-ff256264a327",
+        "method": "GET",
+        "endpoint": "/init",
+        "responseCode": "INIT",
+        "path": "client_secret"
+      },
+      "destination": {
+        "connectionId": "fa337d38-4b0b-49e6-be77-5e334bb8e763",
+        "method": "POST",
+        "endpoint": "/token",
+        "path": "client_secret"
+      }
+    },
+    {
+      "source": {
+        "connectionId": "df052dfb-a58d-4914-9c5b-ff256264a327",
+        "method": "GET",
+        "endpoint": "/init",
+        "responseCode": "INIT",
+        "path": "username"
+      },
+      "destination": {
+        "connectionId": "fa337d38-4b0b-49e6-be77-5e334bb8e763",
+        "method": "POST",
+        "endpoint": "/token",
+        "path": "username"
+      }
+    },
+    {
+      "source": {
+        "connectionId": "df052dfb-a58d-4914-9c5b-ff256264a327",
+        "method": "GET",
+        "endpoint": "/init",
+        "responseCode": "INIT",
+        "path": "password"
+      },
+      "destination": {
+        "connectionId": "fa337d38-4b0b-49e6-be77-5e334bb8e763",
+        "method": "POST",
+        "endpoint": "/token",
+        "path": "password"
+      }
+    },
+    {
+      "source": {
+        "connectionId": "fa337d38-4b0b-49e6-be77-5e334bb8e763",
+        "method": "POST",
+        "endpoint": "/token",
+        "responseCode": "200",
+        "path": "access_token"
+      },
+      "destination": {
+        "connectionId": "382f857e-0417-4460-aee0-df4c8cb23a07",
+        "method": "GET",
+        "endpoint": "/response",
+        "path": "token"
+      }
+    }
+  ],
+  "id": "tysToken",
+  "clientId": "BlockSpaces",
+  "type": "ROUNDTRIP",
+  "createdAt": {
+    "$date": "2021-12-08T18:37:07.192Z"
+  },
+  "updatedAt": {
+    "$date": "2021-12-08T18:38:06.983Z"
+  },
+  "__v": 0
+}

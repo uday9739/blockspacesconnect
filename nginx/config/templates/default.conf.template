@@ -1,0 +1,61 @@
+server {
+  listen 443 ssl;
+  server_name frontend;
+
+  ssl_certificate ${NGINX_BSC_SSL_CERT};
+  ssl_certificate_key ${NGINX_BSC_SSL_KEY};
+
+  location /api {
+    proxy_set_header X-Real-IP $remote_addr;
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header X-NginX-Proxy true;
+    proxy_pass ${NGINX_PROXY_PASS_BACKEND};
+    proxy_ssl_session_reuse off;
+    proxy_set_header Host $http_host;
+    proxy_set_header Connection "";
+    proxy_cache_bypass $http_upgrade;
+    proxy_redirect off;
+  }
+
+  location /admin-portal/api {
+    proxy_set_header X-Real-IP $remote_addr;
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header X-NginX-Proxy true;
+    proxy_pass ${NGINX_PROXY_PASS_BACKEND_ADMIN};
+    proxy_ssl_session_reuse off;
+    proxy_set_header Host $http_host;
+    proxy_set_header Connection "";
+    proxy_cache_bypass $http_upgrade;
+    proxy_redirect off;
+  }
+
+  location /admin-portal {
+    proxy_set_header X-Real-IP $remote_addr;
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header X-NginX-Proxy true;
+    proxy_pass ${NGINX_PROXY_PASS_FRONTEND_ADMIN};
+    proxy_ssl_session_reuse off;
+    proxy_set_header Host $http_host;
+    proxy_cache_bypass $http_upgrade;
+    proxy_redirect off;
+
+    proxy_http_version 1.1;
+    proxy_set_header Upgrade $http_upgrade;
+    proxy_set_header Connection "upgrade";
+  }
+
+  location /connect {
+    proxy_set_header X-Real-IP $remote_addr;
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header X-NginX-Proxy true;
+    proxy_pass ${NGINX_PROXY_PASS_FRONTEND};
+    proxy_ssl_session_reuse off;
+    proxy_set_header Host $http_host;
+    proxy_cache_bypass $http_upgrade;
+    proxy_redirect off;
+
+    proxy_http_version 1.1;
+    proxy_set_header Upgrade $http_upgrade;
+    proxy_set_header Connection "upgrade";
+  }
+}

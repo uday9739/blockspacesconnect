@@ -1,0 +1,8 @@
+{ 
+    "getNewAddress": {
+        "status": "success",
+        "data": {
+            "address": "bcrt1qaaue6ct7k3wynun69cyvx2yr72d7als8ve02pg"
+        }
+    }
+}

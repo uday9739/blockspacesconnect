@@ -1,0 +1,58 @@
+version: "3"
+services:
+
+  bsc-admin-api:
+#    image: blockspacesteam/bsc-admin-api:${DOCKER_TAG}-${ENVIRONMENT}
+#    profiles: ["admin-api"]
+#    tty: true
+#    stdin_open: true
+#    platform: linux/amd64
+    container_name: bsc-admin-api
+    build:
+      context: ./
+      dockerfile: ./Dockerfile
+    ports:
+      - "3000:3000"
+#    env_file:
+#      - ./admin-api/.env
+    expose:
+      - "3000"
+#    networks:
+#      - bsc
+#    restart: always
+#    volumes:
+#      - ./admin-api/logs:/blockspaces/admin-api/logs
+#    depends_on:
+#      - bsc-mongo
+#      - bsc-rproxy
+
+#  bsc-frontend:
+#    image: blockspacesteam/bsc-frontend:${DOCKER_TAG}-${ENVIRONMENT}
+#    profiles: ["legacy","core"]
+#    tty: true
+#    stdin_open: true
+#    platform: linux/amd64
+#    container_name: bsc-frontend
+#    build:
+#      context: ./
+#      dockerfile: ./Dockerfile
+#      args:
+#        API_URL: ${API_URL}
+#        HOST_URL: ${HOST_URL}
+#        DEMO_LIGHTNING_NODE: ${DEMO_LIGHTNING_NODE}
+#        SERVICE_NOW_URL: ${SERVICE_NOW_URL}
+#        DATADOG_APP_ID: ${DATADOG_APP_ID}
+#        DATADOG_CLIENT_TOKEN: ${DATADOG_CLIENT_TOKEN}
+#        NEXT_PUBLIC_GOOGLE_RECAPTCHA_KEY: ${NEXT_PUBLIC_GOOGLE_RECAPTCHA_KEY}
+#        NEXT_PUBLIC_GA_MEASUREMENT_ID: ${NEXT_PUBLIC_GA_MEASUREMENT_ID}
+#    ports:
+#      - "3069:3069"
+#    expose:
+#      - "3069"
+#    networks:
+#      - bsc
+#    env_file:
+#      - ./frontend/admin-portal/.env
+#    depends_on:
+#     - bsc-rproxy
+#      - bsc-admin-api

@@ -1,0 +1,21 @@
+{
+  "id": "bcaea3c0-d8f7-4074-a43c-b74bf5a1cdae",
+  "type": "connection",
+  "systemId": "ibmfoodtrust",
+  "connectorId": "foodTrustConnector",
+  "activeMethod": {
+    "name": "/products",
+    "method": "POST",
+    "description": "Retrieves Master Item Data product information request body array properties can contain a maximum number of 200 items",
+    "parameters": [[{}], [{}], [{}], [{}], [{}], [{}]],
+    "responses": [[{}], [{}]]
+  },
+  "credentials": {
+    "apikey": "Q8eHfxi7MKqGj0Cfrbx3k9lg5HySa6qjPEDD3lw7CiQ5",
+    "iamBaseUrl": "https://iam.cloud.ibm.com",
+    "iftExchangeTokenUrl": "/ift/api/identity-proxy/exchange_token/v1/organization/",
+    "iftBaseUrl": "https://developer.food.ibm.com",
+    "organization": "6ffc383b-218e-4df9-aab6-5964d57bfb80"
+  },
+  "server": "https://developer.food.ibm.com/ift/api/outbound/v2"
+}

@@ -1,0 +1,15 @@
+{
+  "name": "scratchpad",
+  "version": "0.0.1",
+  "description": "TypeScript scratchpad",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@blockspaces/shared": "file:../shared/dist",
+    "mongoose": "^6.5.4"
+  }
+}

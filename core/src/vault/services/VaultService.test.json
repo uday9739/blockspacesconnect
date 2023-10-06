@@ -1,0 +1,338 @@
+{
+  "getVaultAppToken": {
+    "status": 200,
+    "data": {
+      "request_id": "2f5df0c1-7ef6-8741-c1cd-a5cd82a639b8",
+      "lease_id": "",
+      "renewable": false,
+      "lease_duration": 0,
+      "data": null,
+      "wrap_info": null,
+      "warnings": null,
+      "auth": {
+        "client_token": "s.D2CHZ3nNbXqSMs1yBArc1NiB",
+        "accessor": "orPtSLGMBPPVfaT2KgnABxy4",
+        "policies": ["connect_server"],
+        "token_policies": ["connect_server"],
+        "metadata": {
+          "application": "BlockSpaces Connect",
+          "role_name": "connect"
+        },
+        "lease_duration": 36000,
+        "renewable": true,
+        "entity_id": "ed4aba95-d257-2182-f140-95b65370b0b4",
+        "token_type": "service",
+        "orphan": true
+      }
+    }
+  },
+  "createGroup": {
+    "status": 200,
+    "data": {
+      "auth": null,
+      "data": {
+        "id": "8aba72b7-3c21-8cd8-9bb3-0f668870a49e",
+        "name": "testOrgName"
+      },
+      "lease_duration": 0,
+      "lease_id": "",
+      "renewable": false,
+      "request_id": "d24471d0-b2a5-cf4c-8b80-93b7dea7e415",
+      "warnings": null,
+      "wrap_info": null
+    }
+  },
+  "addGroupAlias": {
+    "status": 200,
+    "data": {
+      "request_id": "c41f9b60-3ed2-5c64-a88c-5182e5ce86a6",
+      "lease_id": "",
+      "renewable": false,
+      "lease_duration": 0,
+      "data": {
+        "canonical_id": "3f472cce-d9c0-ecfb-7a6b-20d7c96b57b5",
+        "id": "71cda9d3-96db-ba1a-efd2-3324ffcb5637"
+      },
+      "wrap_info": null,
+      "warnings": null,
+      "auth": null
+    }
+  },
+  "testPolicyObject": {
+    "policy": "path 'connect/metadata/orgs/${tenantId}*' {\n  capabilities = ['read','list']\n}\n\npath 'connect/data/orgs/${tenantId}*' {\n  capabilities = [ 'create','read','update','delete','list' ]\n}\n\npath 'connect/data/orgs/${tenantId}/{{identity.entity.aliases.auth_jwt_04eec72b.metadata.sub}}*' {\n  capabilities = [ 'create','read','update','delete','list' ]\n}"
+  },
+  "addIdentity": {
+    "status": 200,
+    "data": {
+      "request_id": "840affce-bff7-74b5-e989-62f8ff949d2f",
+      "lease_id": "",
+      "renewable": false,
+      "lease_duration": 0,
+      "data": {
+        "aliases": null,
+        "id": "a1c1aa32-4370-03a5-224e-685b848a20d2",
+        "name": "test_email@gmail.com"
+      },
+      "wrap_info": null,
+      "warnings": null,
+      "auth": null
+    }
+  },
+  "readIdentity": {
+    "status": 200,
+    "data": {
+      "request_id": "9c63816d-cfcc-82ab-4e45-66b419e92cb1",
+      "lease_id": "",
+      "renewable": false,
+      "lease_duration": 0,
+      "data": {
+        "aliases": [],
+        "creation_time": "2022-05-24T16:36:54.680512305Z",
+        "direct_group_ids": [],
+        "disabled": false,
+        "group_ids": [],
+        "id": "a1c1aa32-4370-03a5-224e-685b848a20d2",
+        "inherited_group_ids": [],
+        "last_update_time": "2022-05-24T16:36:54.680512305Z",
+        "merged_entity_ids": null,
+        "metadata": {
+          "sub": "0c00d61c-52ff-46a9-8907-2f77703c223a",
+          "userName": "test_email@gmail.com"
+        },
+        "name": "test_email@gmail.com",
+        "namespace_id": "root",
+        "policies": null
+      },
+      "wrap_info": null,
+      "warnings": null,
+      "auth": null
+    }
+  },
+  "addIdentityAliasJWT": {
+    "status": 200,
+    "data": {
+      "request_id": "1b3b1d62-5a8d-f6ad-0330-d48a11db0dbb",
+      "lease_id": "",
+      "renewable": false,
+      "lease_duration": 0,
+      "data": {
+        "canonical_id": "testCannonicalId",
+        "id": "23854551-e589-a7da-2e3f-c107c5aa3056"
+      },
+      "wrap_info": null,
+      "warnings": null,
+      "auth": null
+    }
+  },
+  "addTenantToVault": {
+    "status": 200,
+    "data": {
+      "request_id": "2f5df0c1-7ef6-8741-c1cd-a5cd82a639b8",
+      "lease_id": "",
+      "renewable": false,
+      "lease_duration": 0,
+      "data": null,
+      "wrap_info": null,
+      "warnings": null,
+      "auth": {
+        "client_token": "s.D2CHZ3nNbXqSMs1yBArc1NiB",
+        "accessor": "orPtSLGMBPPVfaT2KgnABxy4",
+        "policies": ["connect_server"],
+        "token_policies": ["connect_server"],
+        "metadata": {"application": "BlockSpaces Connect", "role_name": "connect"},
+        "lease_duration": 36000,
+        "renewable": true,
+        "entity_id": "ed4aba95-d257-2182-f140-95b65370b0b4",
+        "token_type": "service",
+        "orphan": true
+      }
+    }
+  },
+  "addTenantToVaultR2": {
+    "status": 200,
+    "data": {
+      "auth": null,
+      "data": {
+        "id": "8aba72b7-3c21-8cd8-9bb3-0f668870a49e",
+        "name": "testOrgName"
+      },
+      "lease_duration": 0,
+      "lease_id": "",
+      "renewable": false,
+      "request_id": "d24471d0-b2a5-cf4c-8b80-93b7dea7e415",
+      "warnings": null,
+      "wrap_info": null
+    }
+  },
+  "addTenantToVaultR3": {
+    "status": 200,
+    "data": {
+      "request_id": "c41f9b60-3ed2-5c64-a88c-5182e5ce86a6",
+      "lease_id": "",
+      "renewable": false,
+      "lease_duration": 0,
+      "data": {
+        "canonical_id": "3f472cce-d9c0-ecfb-7a6b-20d7c96b57b5",
+        "id": "71cda9d3-96db-ba1a-efd2-3324ffcb5637"
+      },
+      "wrap_info": null,
+      "warnings": null,
+      "auth": null
+    }
+  },
+  "createTOTPKey": {
+    "status": 200,
+    "data": {
+      "request_id": "4ae2b267-5ec7-1021-5e21-c51f7416cdf3",
+      "lease_id": "",
+      "renewable": false,
+      "lease_duration": 0,
+      "data": {
+        "barcode": "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",
+        "url": "otpauth://totp/BlockSpaces:ramos.jeremy+d9651edb-b56a-464a-9393-a54d753ae1000@gmail.com?algorithm=SHA1&digits=6&issuer=BlockSpaces&period=30&secret=DIYXFBRKMP2K3H67UTRJGMRFQIIN6FE2"
+      },
+      "wrap_info": null,
+      "warnings": null,
+      "auth": null
+    }
+  },
+  "generateTOTPCode": {
+    "status": 200,
+    "data": {
+      "request_id": "759da89f-9c50-5b2d-9046-bdbf8f3ccb33",
+      "lease_id": "",
+      "renewable": false,
+      "lease_duration": 0,
+      "data": {
+        "code": "182990"
+      },
+      "wrap_info": null,
+      "warnings": null,
+      "auth": null
+    }
+  },
+  "validateTOTPCode": {
+    "status": 200,
+    "data": {
+      "request_id": "3ae61d4f-52cc-5f79-b220-ae86aecea456",
+      "lease_id": "",
+      "renewable": false,
+      "lease_duration": 0,
+      "data": {
+        "valid": true
+      },
+      "wrap_info": null,
+      "warnings": null,
+      "auth": null
+    }
+  },
+  "getVaultClientToken": {
+    "status": 200,
+    "data": {
+      "request_id": "f4b045c2-9838-e987-bfb7-4d7d354e9c8b",
+      "lease_id": "",
+      "renewable": false,
+      "lease_duration": 0,
+      "data": null,
+      "wrap_info": null,
+      "warnings": null,
+      "auth": {
+        "client_token": "s.nKT0vDlI2hxHx2xwXPOs4ND3",
+        "accessor": "Eflb2hr3rJut8fZOJ8DAe6Wh",
+        "policies": ["default"],
+        "token_policies": ["default"],
+        "metadata": {
+          "role": "client_role",
+          "sub": "2125a026-ab9e-43ab-a7e4-2f5e1613ea8e",
+          "userName": "test_email@gmail.com"
+        },
+        "lease_duration": 36000,
+        "renewable": true,
+        "entity_id": "518ca084-84f0-1e7f-eba9-941fa9cb3685",
+        "token_type": "service",
+        "orphan": true
+      }
+    }
+  },
+  "getVaultCredential": {
+    "status": 200,
+    "data": {
+      "request_id": "bb95b06e-e63a-f1cd-6744-263b92e24ad0",
+      "lease_id": "",
+      "renewable": false,
+      "lease_duration": 0,
+      "data": {
+        "data": "test",
+        "metadata": {
+          "created_time": "2022-02-22T23:47:19.938426074Z",
+          "deletion_time": "",
+          "destroyed": false,
+          "version": 1
+        }
+      },
+      "wrap_info": null,
+      "warnings": null,
+      "auth": null
+    }
+  },
+  "postVaultCredential":       {
+    "status": 200,
+    "data": {
+      "request_id": "e5382121-9a22-c832-cd45-efd47f19f9b3",
+      "lease_id": "",
+      "renewable": false,
+      "lease_duration": 0,
+      "data": {
+        "created_time": "2022-05-24T18:53:30.322759228Z",
+        "deletion_time": "",
+        "destroyed": false,
+        "version": 2
+      },
+      "wrap_info": null,
+      "warnings": null,
+      "auth": null
+    }
+  },
+  "putVaultCredential":       {
+    "status": 200,
+    "data": {
+      "request_id": "e5382121-9a22-c832-cd45-efd47f19f9b3",
+      "lease_id": "",
+      "renewable": false,
+      "lease_duration": 0,
+      "data": {
+        "created_time": "2022-05-24T18:53:30.322759228Z",
+        "deletion_time": "",
+        "destroyed": false,
+        "version": 3
+      },
+      "wrap_info": null,
+      "warnings": null,
+      "auth": null
+    }
+  },
+  "getVaultStatus":       {
+    "status": 200,
+    "data": {
+      "request_id": "2f5df0c1-7ef6-8741-c1cd-a5cd82a639b8",
+      "lease_id": "",
+      "renewable": false,
+      "lease_duration": 0,
+      "data": null,
+      "wrap_info": null,
+      "warnings": null,
+      "auth": {
+        "client_token": "s.D2CHZ3nNbXqSMs1yBArc1NiB",
+        "accessor": "orPtSLGMBPPVfaT2KgnABxy4",
+        "policies": ["connect_server"],
+        "token_policies": ["connect_server"],
+        "metadata": {"application": "BlockSpaces Connect", "role_name": "connect"},
+        "lease_duration": 36000,
+        "renewable": true,
+        "entity_id": "ed4aba95-d257-2182-f140-95b65370b0b4",
+        "token_type": "service",
+        "orphan": true
+      }
+    }
+  }
+}

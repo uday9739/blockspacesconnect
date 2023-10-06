@@ -1,0 +1,86 @@
+{
+  "id": "iftToken",
+  "groups": ["IBM", "Food Trust", "IFT Token"],
+  "name": "IBM Food Trust - Token",
+  "type": "Authentication",
+  "description": "IBM Food Trust get IFT Token",
+  "system": "ibmfoodtrust",
+  "specification": {
+    "openapi": "3.0.0",
+    "servers": [
+      {
+        "url": "https://food.ibm.com/ift/api",
+        "description": "Food Trust Production Server",
+        "x-environment": "Production"
+      },
+      {
+        "url": "https://developer.food.ibm.com/ift/api",
+        "description": "Food Trust Development Server",
+        "x-environment": "Development"
+      }
+    ],
+    "info": {
+      "description": "IBM Food Trust API",
+      "version": "1.0.0",
+      "title": "IBM Food Trust API",
+      "contact": {
+        "email": "support@ibm.com"
+      },
+      "license": {
+        "name": "Apache 2.0",
+        "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+      }
+    },
+    "paths": {
+      "/identity-proxy/exchange_token/v1/organization/{org_id}": {
+        "post": {
+          "description": "Exchange IAM Token for a Food Trust token",
+          "parameters": [
+            {
+              "in": "path",
+              "name": "org_id",
+              "description": "Organization",
+              "required": true,
+              "schema": {
+                "type": "string",
+                "example": "123456798"
+              }
+            },
+            {
+              "in": "query",
+              "name": "access_token",
+              "required": true,
+              "description": "IBM IAM Access Token",
+              "schema": {
+                "type": "string",
+                "example": "123456ABCDEF"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Food Trust token",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "object",
+                    "properties": {
+                      "onboarding_token": {
+                        "type": "string",
+                        "description": "The Food Trust Token"
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "400": {
+              "description": "bad input parameter"
+            }
+          }
+        }
+      }
+    },
+    "components": {}
+  }
+}

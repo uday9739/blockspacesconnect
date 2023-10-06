@@ -1,0 +1,23 @@
+export default function moduleReport(error?: Error,depth?: number) {
+
+  let report ={
+    functionName:"",
+    lineNumber: 0,
+    filepath:""
+  };
+
+  let frame = "";
+  let e = error ? error : new Error();
+  let index = depth ? depth + 2 : 2;
+
+  frame = e.stack.split("\n")[index];
+  report.lineNumber = Number(frame.match(/(?<=:)[0-9]*(?=:)/));
+
+  let filepath = String(frame.match(/(?<=\().*(?=:+[0-9]+:+[0-9])/)).trim();
+  report.filepath = filepath == 'null' ? frame.trim() : filepath ;
+  report.functionName = String(frame.match(/(?<=at\s).*(?=\s\()/));
+
+  return report;
+}
+
+export { moduleReport };

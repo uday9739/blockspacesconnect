@@ -1,0 +1,107 @@
+{
+  "id": "farmToPlateToken",
+  "groups": ["Paramount", "Farm To Plate", "Farm To Plate Token"],
+  "name": "Paramount - Farm To Plate Token",
+  "type": "Authentication",
+  "system":"Paramount",
+  "description": "Paramount Farm To Plate Token",
+  "specification": {
+    "openapi": "3.0.0",
+    "servers": [
+      {
+        "description": "Farm To Plate Development",
+        "url": "https://alpha.farmtoplate.io/node/api/v2",
+        "x-environment": "Development"
+      }
+    ],
+    "info": {
+      "description": "Farm To Plate API",
+      "version": "1.0.0",
+      "title": "Farm To Plate API",
+      "contact": {
+        "email": "support@farmtoplate.io"
+      },
+      "license": {
+        "name": "Apache 2.0",
+        "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+      }
+    },
+    "paths": {
+      "/users/login": {
+        "post": {
+          "description": "Get a Farm To Plate Token",
+          "parameters": [],
+          "requestBody": {
+            "content": {
+              "application/x-www-form-urlencoded": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "username": {
+                      "description": "User email address",
+                      "type": "string",
+                      "in":"query",
+                      "required": true,
+                      "example": "user@domain.com"
+                    },
+                    "password": {
+                      "description": "User Password",
+                      "type": "string",
+                      "in":"query",
+                      "required": true,
+                      "example": "123456ABCDEF"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "search results matching criteria",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "object",
+                    "properties": {
+                      "success": {
+                        "type": "string",
+                        "description": "Successs or Failure"
+                      },
+                      "message": {
+                        "type": "object",
+                        "properties": {
+                          "username": {
+                            "type":"string",
+                            "description":"User email address"
+                          },
+                          "orgId":{
+                            "type":"string",
+                            "description":"Organization ID"
+                          },
+                          "organisationName":{
+                            "type":"string",
+                            "description":"Organization Name"
+                          },
+                          "userRole": {
+                            "type":"string",
+                            "description":"User Role"
+                          }
+                        }
+                      },
+                      "jwt": {
+                        "type":"string",
+                        "description":"Token"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "components": {}
+  }
+}

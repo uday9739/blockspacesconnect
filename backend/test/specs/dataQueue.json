@@ -1,0 +1,19 @@
+{
+  "queue": {
+    "initialData": {
+      "updatedSince": "2020-08-15",
+      "productId": ["Array"],
+      "action": "GetClients",
+      "clientId": 18
+    },
+    "0:0:f7901822-f501-41a4-aa5e-096a61e498f3:GET:/init:INIT": {
+      "updatedSince": "2020-08-15",
+      "productId": ["Array"],
+      "action": "GetClients",
+      "clientId": 18
+    },
+    "1:0:17d8b465-d2b1-423c-8a63-edec2aed8300:GET:/products:200": {"products": ["Array"], "next": ["Object"]}
+  },
+  "addKey": ["addKey"],
+  "getKey": ["getKey"]
+}

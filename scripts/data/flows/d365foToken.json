@@ -1,0 +1,314 @@
+{
+  "name": "d365foToken",
+  "parentId": [],
+  "isAuthFlow": true,
+  "steps": [
+    [
+      {
+        "id": "c6641185-ed26-4f4b-b1f7-62c177663edf",
+        "connectorId": "initialdata",
+        "description": "",
+        "type": "Initial",
+        "activeMethod": {
+          "name": "/init",
+          "description": "",
+          "method": "GET",
+          "contentType": "application/json",
+          "parameters": [],
+          "responses": [
+            {
+              "responseCode": "INIT",
+              "description": "INIT",
+              "parameters": [
+                {
+                  "name": "tenant_id",
+                  "description": "",
+                  "in": "",
+                  "type": "string",
+                  "required": false
+                },
+                {
+                  "name": "grant_type",
+                  "description": "",
+                  "in": "",
+                  "type": "string",
+                  "required": false
+                },
+                {
+                  "name": "client_id",
+                  "description": "",
+                  "in": "",
+                  "type": "string",
+                  "required": false
+                },
+                {
+                  "name": "client_secret",
+                  "description": "",
+                  "in": "",
+                  "type": "string",
+                  "required": false
+                },
+                {
+                  "name": "resource",
+                  "description": "",
+                  "in": "",
+                  "type": "string",
+                  "required": false
+                }
+              ]
+            }
+          ]
+        }
+      }
+    ],
+    [
+      {
+        "id": "f95e2aef-a205-41d9-bfe9-7ad735254a4b",
+        "connectorId": "d365foToken",
+        "description": "Microsoft Dynamics 365 F&O get Token",
+        "type": "Authentication",
+        "activeMethod": {
+          "name": "/token",
+          "method": "POST",
+          "description": "Request a Microsoft Token",
+          "contentType": "application/x-www-form-urlencoded",
+          "parameters": [
+            {
+              "name": "tenant_id",
+              "description": "Tenant ID",
+              "in": "path",
+              "type": "string",
+              "required": true,
+              "example": "Example tenant_id"
+            },
+            {
+              "name": "grant_type",
+              "description": "Grant Type",
+              "in": "query",
+              "type": "string",
+              "required": true,
+              "example": "Example grant_type"
+            },
+            {
+              "name": "client_id",
+              "description": "Client ID",
+              "in": "query",
+              "type": "string",
+              "required": true,
+              "example": "Example client_id"
+            },
+            {
+              "name": "client_secret",
+              "description": "Client Secret",
+              "in": "query",
+              "type": "string",
+              "required": true,
+              "example": "Example client_secret"
+            },
+            {
+              "name": "resource",
+              "description": "Your D365 F&O Endpoint",
+              "in": "query",
+              "type": "string",
+              "required": true,
+              "example": "Example resource"
+            }
+          ],
+          "responses": [
+            {
+              "responseCode": "200",
+              "description": "Dynamics 365 F&O token",
+              "parameters": [
+                {
+                  "name": "access_token",
+                  "description": "The Dynamics 365 F&O Token",
+                  "in": "",
+                  "type": "string",
+                  "required": false,
+                  "example": "Example access_token"
+                },
+                {
+                  "name": "token_type",
+                  "description": "The type of token, generally Bearer",
+                  "in": "",
+                  "type": "string",
+                  "required": false,
+                  "example": "Example token_type"
+                },
+                {
+                  "name": "expires_in",
+                  "description": "The number of seconds that the token will expire in",
+                  "in": "",
+                  "type": "string",
+                  "required": false,
+                  "example": "Example expires_in"
+                },
+                {
+                  "name": "ext_expires_in",
+                  "description": "The number of seconds before the refresh token expires",
+                  "in": "",
+                  "type": "string",
+                  "required": false,
+                  "example": "Example ext_expires_in"
+                },
+                {
+                  "name": "expires_on",
+                  "description": "The Unix timestamp of when the token expires",
+                  "in": "",
+                  "type": "string",
+                  "required": false,
+                  "example": "Example expires_on"
+                },
+                {
+                  "name": "not_before",
+                  "description": "The Unix timestamp that prohibits use of the token before",
+                  "in": "",
+                  "type": "string",
+                  "required": false,
+                  "example": "Example not_before"
+                },
+                {
+                  "name": "resource",
+                  "description": "The resource the token is allowed to use",
+                  "in": "",
+                  "type": "string",
+                  "required": false,
+                  "example": "Example resource"
+                }
+              ]
+            },
+            {
+              "responseCode": "400",
+              "description": "bad input parameter",
+              "parameters": []
+            }
+          ]
+        },
+        "server": {
+          "x-environment": "Development",
+          "_id": "61bbc1a0e8fb7aabbc0bed5e",
+          "url": "https://login.microsoftonline.com/{tenant_id}/oauth2"
+        }
+      }
+    ],
+    [
+      {
+        "id": "ab383ae1-5878-4908-a176-3148507be598",
+        "connectorId": "response",
+        "description": "",
+        "type": "Response",
+        "activeMethod": {
+          "name": "/response",
+          "description": "",
+          "method": "GET",
+          "contentType": "application/json",
+          "parameters": [
+            {
+              "name": "token",
+              "description": "",
+              "in": "",
+              "type": "string",
+              "required": false
+            }
+          ],
+          "responses": []
+        }
+      }
+    ]
+  ],
+  "mappings": [
+    {
+      "source": {
+        "connectionId": "c6641185-ed26-4f4b-b1f7-62c177663edf",
+        "method": "GET",
+        "endpoint": "/init",
+        "responseCode": "INIT",
+        "path": "resource"
+      },
+      "destination": {
+        "connectionId": "f95e2aef-a205-41d9-bfe9-7ad735254a4b",
+        "method": "POST",
+        "endpoint": "/token",
+        "path": "resource"
+      }
+    },
+    {
+      "source": {
+        "connectionId": "c6641185-ed26-4f4b-b1f7-62c177663edf",
+        "method": "GET",
+        "endpoint": "/init",
+        "responseCode": "INIT",
+        "path": "client_secret"
+      },
+      "destination": {
+        "connectionId": "f95e2aef-a205-41d9-bfe9-7ad735254a4b",
+        "method": "POST",
+        "endpoint": "/token",
+        "path": "client_secret"
+      }
+    },
+    {
+      "source": {
+        "connectionId": "c6641185-ed26-4f4b-b1f7-62c177663edf",
+        "method": "GET",
+        "endpoint": "/init",
+        "responseCode": "INIT",
+        "path": "client_id"
+      },
+      "destination": {
+        "connectionId": "f95e2aef-a205-41d9-bfe9-7ad735254a4b",
+        "method": "POST",
+        "endpoint": "/token",
+        "path": "client_id"
+      }
+    },
+    {
+      "source": {
+        "connectionId": "c6641185-ed26-4f4b-b1f7-62c177663edf",
+        "method": "GET",
+        "endpoint": "/init",
+        "responseCode": "INIT",
+        "path": "grant_type"
+      },
+      "destination": {
+        "connectionId": "f95e2aef-a205-41d9-bfe9-7ad735254a4b",
+        "method": "POST",
+        "endpoint": "/token",
+        "path": "grant_type"
+      }
+    },
+    {
+      "source": {
+        "connectionId": "c6641185-ed26-4f4b-b1f7-62c177663edf",
+        "method": "GET",
+        "endpoint": "/init",
+        "responseCode": "INIT",
+        "path": "tenant_id"
+      },
+      "destination": {
+        "connectionId": "f95e2aef-a205-41d9-bfe9-7ad735254a4b",
+        "method": "POST",
+        "endpoint": "/token",
+        "path": "tenant_id"
+      }
+    },
+    {
+      "source": {
+        "connectionId": "f95e2aef-a205-41d9-bfe9-7ad735254a4b",
+        "method": "POST",
+        "endpoint": "/token",
+        "responseCode": "200",
+        "path": "access_token"
+      },
+      "destination": {
+        "connectionId": "ab383ae1-5878-4908-a176-3148507be598",
+        "method": "GET",
+        "endpoint": "/response",
+        "path": "token"
+      }
+    }
+  ],
+  "id": "d365foToken",
+  "clientId": "BlockSpaces",
+  "type": "ROUNDTRIP"
+  }

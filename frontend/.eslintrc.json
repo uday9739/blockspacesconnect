@@ -1,0 +1,20 @@
+{
+
+  "env": {
+      "browser": true,
+      "es2021": true
+  },
+  "extends": [
+      "../.eslintrc.json"
+  ],
+  "rules": {},
+  "overrides": [
+    {
+      "files": ["**/*.tsx"],
+      "rules": {
+        // disable warnings for default exports for *.tsx files
+        "import/no-default-export": "off"
+      }
+    }
+  ]
+}

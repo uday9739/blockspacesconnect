@@ -1,0 +1,37 @@
+{
+  "result": "success",
+  "totalresults": 4,
+  "startnumber": 0,
+  "numreturned": 4,
+  "users": [
+    {
+      "id": 20,
+      "firstname": "Tester",
+      "lastname": "Twenty",
+      "email": "chris.tate+t1299h423@blockspaces.com",
+      "datecreated": "2021-07-14 00:00:00",
+      "validationdata": "",
+      "clients": [
+        {
+          "id": 20,
+          "isOwner": true
+        }
+      ]
+    },
+    {
+      "id": 20,
+      "firstname": "Tester",
+      "lastname": "Twenty",
+      "email": "chris.tate+6756h67j423@blockspaces.com",
+      "datecreated": "2021-07-14 00:00:00",
+      "validationdata": "",
+      "clients": [
+        {
+          "id": 20,
+          "isOwner": true
+        }
+      ]
+    }
+
+  ]
+}

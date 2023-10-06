@@ -1,0 +1,16 @@
+{
+  "extends":"@tsconfig/node14/tsconfig.json",
+  "compilerOptions": {
+    "target": "es6",
+    "strict": false,
+    "esModuleInterop": true,
+    "module":"es6",
+    "outDir": "dist",
+    "allowJs": true,
+    "moduleResolution": "node",
+    "resolveJsonModule":true,
+    "sourceMap": true
+  },
+  "include": ["./src/**/*.ts"],
+  "exclude": ["node_modules","./src/**/*.proto"]
+}

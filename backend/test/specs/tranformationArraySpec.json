@@ -1,0 +1,128 @@
+{
+  "_id": {
+    "$oid": "61688d65a3729c4966767b70"
+  },
+  "groups": [
+    "BlockSpaces",
+    "Core"
+  ],
+  "id": "transformationArray",
+  "name": "Array Transfomations",
+  "type": "Transformation",
+  "description": "BlockSpaces Connect",
+  "system": "blockspaces",
+  "servers": [
+    {
+      "x-environment": "Development",
+      "_id": {
+        "$oid": "61688d65a3729c4966767b71"
+      },
+      "url": "/api/transformations/array"
+    }
+  ],
+  "specification_processed": [
+    {
+      "name": "/iterate",
+      "methods": [
+        {
+          "method": "POST",
+          "description": "Concatenate an array of strings with an optional separator",
+          "contentType": "application/json",
+          "security": [],
+          "parameters": [
+            {
+              "name": "array",
+              "description": "Array of strings",
+              "in": "query",
+              "type": "array",
+              "required": true,
+              "items": {
+                "item": {
+                  "name": "item",
+                  "description": "item",
+                  "in": "",
+                  "type": "string",
+                  "required": false,
+                  "example": "test string"
+                }
+              }
+            },
+            {
+              "name": "instance",
+              "description": "The instance of the array during iteration",
+              "in": "query",
+              "type": "string",
+              "required": true,
+              "example": "Example instance"
+            },
+            {
+              "name": "blockflowId",
+              "description": "The id of the blockflow to execute",
+              "in": "query",
+              "type": "string",
+              "required": true,
+              "example": "Example blockflowId"
+            },
+            {
+              "name": "additionalData",
+              "description": "Additional data required for child blockflow",
+              "in": "",
+              "type": "object",
+              "required": false,
+              "properties": {
+                "field1": {
+                  "name": "field1",
+                  "description": "An example of additional data",
+                  "in": "",
+                  "type": "string",
+                  "required": false,
+                  "example": "example string"
+                },
+                "field2": {
+                  "name": "field2",
+                  "description": "An example of an additional number item",
+                  "in": "",
+                  "type": "number",
+                  "required": false,
+                  "example": 1234.56
+                }
+              }
+            }
+          ],
+          "responses": [
+            {
+              "responseCode": "200",
+              "description": "Successful",
+              "parameters": [
+                {
+                  "name": "result",
+                  "description": "Result of iteration",
+                  "in": "",
+                  "type": "array",
+                  "required": true,
+                  "items": {
+                    "item": {
+                      "name": "item",
+                      "description": "item",
+                      "in": "",
+                      "type": "string",
+                      "required": false,
+                      "example": "test string"
+                    }
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "createdAt": {
+    "$date": "2021-10-14T20:04:53.020Z"
+  },
+  "updatedAt": {
+    "$date": "2021-10-14T20:04:53.020Z"
+  },
+  "__v": 0
+}

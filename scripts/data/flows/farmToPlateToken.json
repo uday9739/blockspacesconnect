@@ -1,0 +1,231 @@
+{
+  "_id": {
+    "$oid": "61fe01f505688b4a5bc67049"
+  },
+  "name": "Farm To Plate Token",
+  "parentId": [],
+  "isAuthFlow": true,
+  "steps": [
+    [
+      {
+        "id": "a08f5d49-184a-4d8c-821f-52d14868eda0",
+        "connectorId": "initialdata",
+        "description": "",
+        "type": "Initial",
+        "activeMethod": {
+          "name": "/init",
+          "description": "",
+          "method": "GET",
+          "contentType": "application/json",
+          "parameters": [],
+          "responses": [
+            {
+              "responseCode": "INIT",
+              "description": "INIT",
+              "parameters": [
+                {
+                  "name": "username",
+                  "description": "",
+                  "in": "",
+                  "type": "string",
+                  "required": false
+                },
+                {
+                  "name": "password",
+                  "description": "",
+                  "in": "",
+                  "type": "string",
+                  "required": false
+                }
+              ]
+            }
+          ]
+        }
+      }
+    ],
+    [
+      {
+        "id": "ce7e93b2-8b2f-4f99-bc0e-5817bd7d6758",
+        "connectorId": "farmToPlateToken",
+        "description": "Paramount Farm To Plate Token",
+        "type": "Authentication",
+        "activeMethod": {
+          "name": "/users/login",
+          "method": "POST",
+          "description": "Get a Farm To Plate Token",
+          "contentType": "application/x-www-form-urlencoded",
+          "parameters": [
+            {
+              "name": "username",
+              "description": "User email address",
+              "in": "query",
+              "type": "string",
+              "required": true,
+              "example": "user@domain.com"
+            },
+            {
+              "name": "password",
+              "description": "User Password",
+              "in": "query",
+              "type": "string",
+              "required": true,
+              "example": "123456ABCDEF"
+            }
+          ],
+          "responses": [
+            {
+              "responseCode": "200",
+              "description": "search results matching criteria",
+              "parameters": [
+                {
+                  "name": "success",
+                  "description": "Successs or Failure",
+                  "in": "",
+                  "type": "string",
+                  "required": false,
+                  "example": "Example success"
+                },
+                {
+                  "name": "message",
+                  "description": "message",
+                  "in": "",
+                  "type": "object",
+                  "required": false,
+                  "properties": [
+                    {
+                      "name": "username",
+                      "description": "User email address",
+                      "in": "",
+                      "type": "string",
+                      "required": false,
+                      "example": "Example username"
+                    },
+                    {
+                      "name": "orgId",
+                      "description": "Organization ID",
+                      "in": "",
+                      "type": "string",
+                      "required": false,
+                      "example": "Example orgId"
+                    },
+                    {
+                      "name": "organisationName",
+                      "description": "Organization Name",
+                      "in": "",
+                      "type": "string",
+                      "required": false,
+                      "example": "Example organisationName"
+                    },
+                    {
+                      "name": "userRole",
+                      "description": "User Role",
+                      "in": "",
+                      "type": "string",
+                      "required": false,
+                      "example": "Example userRole"
+                    }
+                  ]
+                },
+                {
+                  "name": "jwt",
+                  "description": "Token",
+                  "in": "",
+                  "type": "string",
+                  "required": false,
+                  "example": "Example jwt"
+                }
+              ]
+            }
+          ]
+        },
+        "server": {
+          "x-environment": "Development",
+          "_id": "61fe01f205688b4a5bc6701f",
+          "url": "https://alpha.farmtoplate.io/node/api/v2"
+        },
+        "credential": {}
+      }
+    ],
+    [
+      {
+        "id": "83198d8d-0ad0-4209-8758-8400c6635fe9",
+        "connectorId": "response",
+        "description": "",
+        "type": "Response",
+        "activeMethod": {
+          "name": "/response",
+          "description": "",
+          "method": "GET",
+          "contentType": "application/json",
+          "parameters": [
+            {
+              "name": "token",
+              "description": "",
+              "in": "",
+              "type": "string",
+              "required": false
+            }
+          ],
+          "responses": []
+        }
+      }
+    ]
+  ],
+  "mappings": [
+    {
+      "source": {
+        "connectionId": "a08f5d49-184a-4d8c-821f-52d14868eda0",
+        "method": "GET",
+        "endpoint": "/init",
+        "responseCode": "INIT",
+        "path": "username"
+      },
+      "destination": {
+        "connectionId": "ce7e93b2-8b2f-4f99-bc0e-5817bd7d6758",
+        "method": "POST",
+        "endpoint": "/users/login",
+        "path": "username"
+      }
+    },
+    {
+      "source": {
+        "connectionId": "a08f5d49-184a-4d8c-821f-52d14868eda0",
+        "method": "GET",
+        "endpoint": "/init",
+        "responseCode": "INIT",
+        "path": "password"
+      },
+      "destination": {
+        "connectionId": "ce7e93b2-8b2f-4f99-bc0e-5817bd7d6758",
+        "method": "POST",
+        "endpoint": "/users/login",
+        "path": "password"
+      }
+    },
+    {
+      "source": {
+        "connectionId": "ce7e93b2-8b2f-4f99-bc0e-5817bd7d6758",
+        "method": "POST",
+        "endpoint": "/users/login",
+        "responseCode": "200",
+        "path": "jwt"
+      },
+      "destination": {
+        "connectionId": "83198d8d-0ad0-4209-8758-8400c6635fe9",
+        "method": "GET",
+        "endpoint": "/response",
+        "path": "token"
+      }
+    }
+  ],
+  "id": "farmToPlateToken",
+  "clientId": "BlockSpaces",
+  "type": "ROUNDTRIP",
+  "createdAt": {
+    "$date": "2022-02-05T04:49:57.414Z"
+  },
+  "updatedAt": {
+    "$date": "2022-02-05T04:52:39.674Z"
+  },
+  "__v": 0
+}

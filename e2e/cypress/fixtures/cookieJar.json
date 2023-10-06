@@ -1,0 +1,61 @@
+[
+  {
+    "name": "_dd_s",
+    "value": "rum=0&expire=1673992217435",
+    "path": "/",
+    "secure": false,
+    "httpOnly": false,
+    "expiry": 1673992218,
+    "domain": "dev.blockspaces.dev",
+    "sameSite": "strict"
+  },
+  {
+    "name": "__hssc",
+    "value": "11408171.1.1673991314300",
+    "path": "/",
+    "secure": false,
+    "httpOnly": false,
+    "expiry": 1673993114,
+    "domain": ".blockspaces.dev",
+    "sameSite": "lax"
+  },
+  {
+    "name": "__token__",
+    "value": "s%3AeyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImFwcElkLTQ0ZGU4MjRhLWRlMzAtNGI1OC1hOWRkLTMyODJhZjYxMzU1MS0yMDIyLTAzLTAzVDE5OjMyOjM4Ljg2NCIsInZlciI6NH0.eyJpc3MiOiJodHRwczovL3VzLXNvdXRoLmFwcGlkLmNsb3VkLmlibS5jb20vb2F1dGgvdjQvNDRkZTgyNGEtZGUzMC00YjU4LWE5ZGQtMzI4MmFmNjEzNTUxIiwiZXhwIjoxNjc0MDc3NzE3LCJhdWQiOlsiNGFlM2VhYTktN2Y2MS00ZTQyLWI0ZTMtY2M3OTJkMDczMjdmIl0sInN1YiI6ImY1MjYzOTMzLTRhMTktNDRiYy05ZjA1LWQ4OTRmMzczNjY0NyIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJhbXIiOlsiY2xvdWRfZGlyZWN0b3J5Il0sImlhdCI6MTY3Mzk5MTMxNywidGVuYW50IjoiNDRkZTgyNGEtZGUzMC00YjU4LWE5ZGQtMzI4MmFmNjEzNTUxIiwic2NvcGUiOiJvcGVuaWQgYXBwaWRfZGVmYXVsdCBhcHBpZF9yZWFkdXNlcmF0dHIgYXBwaWRfcmVhZHByb2ZpbGUgYXBwaWRfd3JpdGV1c2VyYXR0ciBhcHBpZF9hdXRoZW50aWNhdGVkIiwidHdvZmFzdGF0dXMiOiJDT05GSVJNRUQiLCJ1c2VyTmFtZSI6ImUyZStkZXYyNTM0QGJsb2Nrc3BhY2VzLmNvbSJ9.sq_AsCJNE0b1b6uQB_GZA8Kh4p5j8FA8pDvdf_ovn3etjsBJbauNThd8yaTZd6H9fuKfmzC3LN0U4rtxwmft9TxQRcCYrWMOcGjkvk6LCbDd4BAupCSgaV_s6P9da-x6jPZBYUdYk4lrTn1kiFweuKSYciNjDb9VgflL6pE4ep4Z_c7Qb_wHAO0ZaciCkzmhZzsUGBqGHPHgDC6Mawz6KlV_tub03Mw0RjvOJUQFp4QtKlw4SI3ZzpmlrtWpSZZs7q5nvRzR_nc8DiT6x9eBrMNsr2g8wbfvIj6G2o7G6BB_eVTPrnQUFMaHyyiCl_ueHf6gzZMfMNr1te9VuHWpPA.SBz8yVjvZ9OtOWqYgGAVUsFkzqflvbF7CFQlFLFu5Ro",
+    "path": "/api",
+    "secure": true,
+    "httpOnly": true,
+    "expiry": 1674077717.188692,
+    "domain": "dev.blockspaces.dev",
+    "sameSite": "strict"
+  },
+  {
+    "name": "__hstc",
+    "value": "11408171.ebcd185b2474c55c1b93a2389bab5e01.1673991314300.1673991314300.1673991314300.1",
+    "path": "/",
+    "secure": false,
+    "httpOnly": false,
+    "expiry": 1689543314,
+    "domain": ".blockspaces.dev",
+    "sameSite": "lax"
+  },
+  {
+    "name": "hubspotutk",
+    "value": "ebcd185b2474c55c1b93a2389bab5e01",
+    "path": "/",
+    "secure": false,
+    "httpOnly": false,
+    "expiry": 1689543314,
+    "domain": ".blockspaces.dev",
+    "sameSite": "lax"
+  },
+  {
+    "name": "__hssrc",
+    "value": "1",
+    "path": "/",
+    "secure": false,
+    "httpOnly": false,
+    "domain": ".blockspaces.dev",
+    "sameSite": "lax"
+  }
+]

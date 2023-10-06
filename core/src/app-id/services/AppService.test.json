@@ -1,0 +1,384 @@
+{
+  "getAdminToken": {
+    "status": 200,
+    "statusText": "OK",
+    "data": {
+      "access_token": "eyJraWQiOiIyMDIyMDUxNjA4MjUiLCJhbGciOiJSUzI1NiJ9.eyJpYW1faWQiOiJpYW0tU2VydmljZUlkLTllMWFjYWZiLWQ2MzQtNDYyYi1iZDk3LWUwMWIxMzMzYTcxMCIsImlkIjoiaWFtLVNlcnZpY2VJZC05ZTFhY2FmYi1kNjM0LTQ2MmItYmQ5Ny1lMDFiMTMzM2E3MTAiLCJyZWFsbWlkIjoiaWFtIiwianRpIjoiYTA2NTViNGItNmVjYi00NDY0LTk2NmUtODE1NzdhZjJjNDljIiwiaWRlbnRpZmllciI6IlNlcnZpY2VJZC05ZTFhY2FmYi1kNjM0LTQ2MmItYmQ5Ny1lMDFiMTMzM2E3MTAiLCJuYW1lIjoiQmxvY2tTcGFjZXMiLCJzdWIiOiJTZXJ2aWNlSWQtOWUxYWNhZmItZDYzNC00NjJiLWJkOTctZTAxYjEzMzNhNzEwIiwic3ViX3R5cGUiOiJTZXJ2aWNlSWQiLCJhdXRobiI6eyJzdWIiOiJTZXJ2aWNlSWQtOWUxYWNhZmItZDYzNC00NjJiLWJkOTctZTAxYjEzMzNhNzEwIiwiaWFtX2lkIjoiaWFtLVNlcnZpY2VJZC05ZTFhY2FmYi1kNjM0LTQ2MmItYmQ5Ny1lMDFiMTMzM2E3MTAiLCJzdWJfdHlwZSI6IlNlcnZpY2VJZCIsIm5hbWUiOiJCbG9ja1NwYWNlcyJ9LCJhY2NvdW50Ijp7ImJvdW5kYXJ5IjoiZ2xvYmFsIiwidmFsaWQiOnRydWUsImJzcyI6Ijc2MjBhMTA2N2QxNjQ5MGNiMmI0ZDNlYTZiY2UxZTI1IiwiZnJvemVuIjp0cnVlfSwiaWF0IjoxNjUzNDczNDY0LCJleHAiOjE2NTM0NzcwNjQsImlzcyI6Imh0dHBzOi8vaWFtLmNsb3VkLmlibS5jb20vaWRlbnRpdHkiLCJncmFudF90eXBlIjoidXJuOmlibTpwYXJhbXM6b2F1dGg6Z3JhbnQtdHlwZTphcGlrZXkiLCJzY29wZSI6ImlibSBvcGVuaWQiLCJjbGllbnRfaWQiOiJkZWZhdWx0IiwiYWNyIjoxLCJhbXIiOlsicHdkIl19.ktRSC0Y2hvnl_SjThG5_SpA0qBLoM6vc9P3sOVxqEqaR3kWQbQa-zndD21n8S3L6KCQ2XaY80u5H23_EzbmlXRaklT0I11sYChv_wft_O9KlWgYN25w66PiTTFxXBOK5C8rDMx6aynq1L6iR1ZFjvK8mQtBalZiD36k0DScR3wQEJTIqakhr2pma7cTRItxTB6r6vQekR6sm1VWqRSY6XKkgzS5VQvUsJaF6irJ3BZ6SgJBYKhfD5b_lEO3oWZ0IWxorex7o9AOgVn-8IVIyFhrU2eeu7gLqyH35VHAVpLe-BIGK7hJjE3g1tX0TZcsdRIxyqZz9E6HWv22J_Alpcw",
+      "refresh_token": "not_supported",
+      "token_type": "Bearer",
+      "expires_in": 3600,
+      "expiration": 1653477064,
+      "scope": "ibm openid"
+    }
+  },
+  "addUserResponse":{
+    "id": "0c59634d-9b8c-426d-925f-1c6bf18119fa",
+    "profileId": "50e23c09-3e20-42aa-8409-528029a972e1",
+    "name": "ramos.jeremy@gmail.com",
+    "email": "ramos.jeremy@gmail.com",
+    "preferred_username": "ramos.jeremy@gmail.com",
+    "identities": [
+      {
+        "provider": "cloud_directory",
+        "id": "c08dfe7d-de24-4420-960f-aec1e85183f8",
+        "idpUserInfo": {
+          "displayName": "ramos.jeremy@gmail.com",
+          "active": true,
+          "userName": "ramos.jeremy@gmail.com",
+          "mfaContext": {},
+          "emails": [
+            {
+              "value": "ramos.jeremy@gmail.com",
+              "primary": true
+            }
+          ],
+          "meta": {
+            "lastLogin": "2021-12-17T17:42:54.547Z",
+            "created": "2021-10-07T22:58:22.827Z",
+            "location": "/v1/8da4b5c5-db05-4b38-b527-8fa17bebea33/Users/c08dfe7d-de24-4420-960f-aec1e85183f8",
+            "lastModified": "2021-12-17T17:42:54.561Z",
+            "resourceType": "User"
+          },
+          "schemas": ["urn:ietf:params:scim:schemas:core:2.0:User"],
+          "id": "c08dfe7d-de24-4420-960f-aec1e85183f8",
+          "status": "CONFIRMED",
+          "idpType": "cloud_directory"
+        }
+      }
+    ],
+    "attributes": {
+      "clientId": "c7ab508a-89ad-4b6d-92d0-fc73121f097c",
+      "orgs": ["orgA", "orgB"],
+      "twofastatus": "PENDING"
+    },
+    "isNew": false
+  },
+  "userSignUpResponse":{
+    "status": 201,
+    "statusText": "OK",
+    "data":  {
+      "displayName": "ramos.jeremy+05250222@blockspaces.com",
+      "active": true,
+      "userName": "ramos.jeremy+05250222@blockspaces.com",
+      "emails": [
+        {
+          "value": "ramos.jeremy+05250222@blockspaces.com",
+          "primary": true
+        }
+      ],
+      "profileId": "b2ce4833-773b-4181-b1f2-fe99acd67b6f",
+      "meta": {
+        "created": "2022-05-25T10:20:03.262Z",
+        "location": "/v1/44de824a-de30-4b58-a9dd-3282af613551/Users/5f0c6edf-420c-4e47-9da5-efa6f50f32e9",
+        "lastModified": "2022-05-25T10:20:03.262Z",
+        "resourceType": "User"
+      },
+      "schemas": [
+        "urn:ietf:params:scim:schemas:core:2.0:User"
+      ],
+      "id": "5f0c6edf-420c-4e47-9da5-efa6f50f32e9",
+      "status": "CONFIRMED"
+    }},
+  "httpGetUserProfile": {
+    "status": 200,
+    "statusText": "OK",
+    "data": {
+      "id": "0c59634d-9b8c-426d-925f-1c6bf18119fa",
+      "name": "ramos.jeremy@gmail.com",
+      "email": "ramos.jeremy@gmail.com",
+      "preferred_username": "ramos.jeremy@gmail.com",
+      "identities": [
+        {
+          "provider": "cloud_directory",
+          "id": "c08dfe7d-de24-4420-960f-aec1e85183f8",
+          "idpUserInfo": {
+            "displayName": "ramos.jeremy@gmail.com",
+            "active": true,
+            "userName": "ramos.jeremy@gmail.com",
+            "mfaContext": {},
+            "emails": [
+              {
+                "value": "ramos.jeremy@gmail.com",
+                "primary": true
+              }
+            ],
+            "meta": {
+              "lastLogin": "2021-12-17T17:42:54.547Z",
+              "created": "2021-10-07T22:58:22.827Z",
+              "location": "/v1/8da4b5c5-db05-4b38-b527-8fa17bebea33/Users/c08dfe7d-de24-4420-960f-aec1e85183f8",
+              "lastModified": "2021-12-17T17:42:54.561Z",
+              "resourceType": "User"
+            },
+            "schemas": ["urn:ietf:params:scim:schemas:core:2.0:User"],
+            "id": "c08dfe7d-de24-4420-960f-aec1e85183f8",
+            "status": "CONFIRMED",
+            "idpType": "cloud_directory"
+          }
+        }
+      ],
+      "attributes": {
+        "clientId": "c7ab508a-89ad-4b6d-92d0-fc73121f097c",
+        "orgs": ["orgA", "orgB"],
+        "twofastatus": "PENDING"
+      }
+    }
+  },
+  "updateUserProfileResponse":{
+    "status": 200,
+    "statusText": "OK",
+    "data":  {
+      "id": "0c59634d-9b8c-426d-925f-1c6bf18119fa",
+      "name": "ramos.jeremy+05250222@blockspaces.com",
+      "email": "ramos.jeremy+05250222@blockspaces.com",
+      "preferred_username": "ramos.jeremy+05250222@blockspaces.com",
+      "identities": [
+        {
+          "provider": "cloud_directory",
+          "id": "5f0c6edf-420c-4e47-9da5-efa6f50f32e9",
+          "idpUserInfo": {
+            "displayName": "ramos.jeremy+05250222@blockspaces.com",
+            "active": true,
+            "userName": "ramos.jeremy+05250222@blockspaces.com",
+            "emails": [
+              {
+                "value": "ramos.jeremy+05250222@blockspaces.com",
+                "primary": true
+              }
+            ],
+            "meta": {
+              "created": "2022-05-25T10:20:03.262Z",
+              "location": "/v1/44de824a-de30-4b58-a9dd-3282af613551/Users/5f0c6edf-420c-4e47-9da5-efa6f50f32e9",
+              "lastModified": "2022-05-25T10:20:03.262Z",
+              "resourceType": "User"
+            },
+            "schemas": [
+              "urn:ietf:params:scim:schemas:core:2.0:User"
+            ],
+            "id": "5f0c6edf-420c-4e47-9da5-efa6f50f32e9",
+            "status": "CONFIRMED"
+          }
+        }
+      ],
+      "attributes": {"orgs": ["orgA", "orgB", "orgX"], "whmcs": {"cid": "whmcsClientId", "oid": "whmcsOwnerId"}, "twofastatus": "PENDING"}
+    }
+  },
+  "httpGetUserByEmail": {
+    "status": 200,
+    "statusText": "OK",
+    "data": {
+      "totalResults": 1,
+      "itemsPerPage": 1,
+      "requestOptions": {},
+      "users": [
+        {"idp": "cloud_directory", "id": "0c59634d-9b8c-426d-925f-1c6bf18119fa", "email": "ramos.jeremy@gmail.com",
+          "identities": [
+            {
+                "provider": "cloud_directory",
+                "id": "d62d0581-2a73-40f1-954d-e7f1f5c16127",
+                "idpUserInfo": {
+                    "displayName": "randyfuentes1987+2@gmail.com",
+                    "active": true,
+                    "userName": "randyfuentes1987@gmail.com",
+                    "emails": [
+                        {
+                            "value": "randyfuentes1987+2@gmail.com",
+                            "primary": true
+                        }
+                    ],
+                    "meta": {
+                        "created": "2022-06-20T22:15:01.495Z",
+                        "location": "/v1/44de824a-de30-4b58-a9dd-3282af613551/Users/d62d0581-2a73-40f1-954d-e7f1f5c16127",
+                        "lastModified": "2022-06-20T22:15:01.495Z",
+                        "resourceType": "User"
+                    },
+                    "schemas": [
+                        "urn:ietf:params:scim:schemas:core:2.0:User"
+                    ],
+                    "id": "d62d0581-2a73-40f1-954d-e7f1f5c16127",
+                    "status": "PENDING"
+                }
+            }
+        ],
+        "attributes": {
+            "orgs": ["orgA","orgB","orgX"],
+            "whmcs": {
+                "cid": "123",
+                "oid": "321"
+            },
+            "twofastatus": "PENDING"
+        }
+        }
+      ]
+    }
+  },
+  "sendEmailResponse": {
+    "status": 202,
+    "statusText": "OK",
+    "data": {
+      "message": "Email is queued to be delivered."
+    }
+  },
+  "forgotPasswordResponse": {
+    "status": 200,
+    "statusText": "OK",
+    "data":
+    {
+      "displayName": "ramos.jeremy@blockspaces.com",
+      "active": true,
+      "userName": "ramos.jeremy@blockspaces.com",
+      "emails": [
+        {
+          "value": "ramos.jeremy@blockspaces.com",
+          "primary": true
+        }
+      ],
+      "meta": {
+        "created": "2022-05-25T10:20:03.262Z",
+        "location": "/v1/44de824a-de30-4b58-a9dd-3282af613551/Users/5f0c6edf-420c-4e47-9da5-efa6f50f32e9",
+        "lastModified": "2022-05-25T10:20:03.262Z",
+        "resourceType": "User"
+      },
+      "schemas": [
+        "urn:ietf:params:scim:schemas:core:2.0:User"
+      ],
+      "id": "5f0c6edf-420c-4e47-9da5-efa6f50f32e9",
+      "status": "CONFIRMED"
+    }
+  },
+  "forgotPasswordConfirmationResponse": {
+    "status": 200,
+    "statusText": "OK",
+    "data":
+{
+  "success": true,
+  "uuid": "0b035b33-2a6d-4bd5-b02b-898c5ae5a86f"
+}
+  },
+  "changePasswordResponse": {
+    "status": 200,
+    "statusText": "OK",
+    "data": {
+      "displayName": "ramos.jeremy+105250222@gmail.com",
+      "active": true,
+      "userName": "ramos.jeremy+105250222@gmail.com",
+      "mfaContext": {},
+      "emails": [
+        {
+          "value": "ramos.jeremy+105250222@gmail.com",
+          "primary": true
+        }
+      ],
+      "meta": {
+        "created": "2022-05-25T10:54:34.328Z",
+        "location": "/v1/44de824a-de30-4b58-a9dd-3282af613551/Users/0b035b33-2a6d-4bd5-b02b-898c5ae5a86f",
+        "lastModified": "2022-05-25T10:58:55.579Z",
+        "resourceType": "User"
+      },
+      "schemas": [
+        "urn:ietf:params:scim:schemas:core:2.0:User"
+      ],
+      "id": "0b035b33-2a6d-4bd5-b02b-898c5ae5a86f",
+      "status": "CONFIRMED"
+    }
+  },
+  "getTokensResponse": {
+    "status": 200,
+    "statusText": "OK",
+    "data": {
+      "access_token": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImFwcElkLTQ0ZGU4MjRhLWRlMzAtNGI1OC1hOWRkLTMyODJhZjYxMzU1MS0yMDIyLTAzLTAzVDE5OjMyOjM4Ljg2NCIsInZlciI6NH0.eyJpc3MiOiJodHRwczovL3VzLXNvdXRoLmFwcGlkLmNsb3VkLmlibS5jb20vb2F1dGgvdjQvNDRkZTgyNGEtZGUzMC00YjU4LWE5ZGQtMzI4MmFmNjEzNTUxIiwiZXhwIjoxNjUzNTYzMjc2LCJhdWQiOlsiNGFlM2VhYTktN2Y2MS00ZTQyLWI0ZTMtY2M3OTJkMDczMjdmIl0sInN1YiI6ImUzOTViODhlLWNhMmQtNGRjMS04OTNmLWFlN2YyNWU4NGYxYiIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJhbXIiOlsiY2xvdWRfZGlyZWN0b3J5Il0sImlhdCI6MTY1MzQ3Njg3NiwidGVuYW50IjoiNDRkZTgyNGEtZGUzMC00YjU4LWE5ZGQtMzI4MmFmNjEzNTUxIiwic2NvcGUiOiJvcGVuaWQgYXBwaWRfZGVmYXVsdCBhcHBpZF9yZWFkdXNlcmF0dHIgYXBwaWRfcmVhZHByb2ZpbGUgYXBwaWRfd3JpdGV1c2VyYXR0ciBhcHBpZF9hdXRoZW50aWNhdGVkIiwidXNlck5hbWUiOiJyYW1vcy5qZXJlbXkrMTIwMzA5YzEtZmY4My00ZjViLTgwNzYtOGRkYzA0ZTk0ZWZiQGdtYWlsLmNvbSJ9.vqhCJidHZsFsJhzLyRXuRMCsKSR3xvLzSOTN_gjsyImuSH-9J7Kjfha9YF36OHEQEIi6fKE2nYzxJ17m84b85bM608qzERIR5IdMVvFi4r5VjRRFFLjpuJGSwNDTgI_rmUgyt2StdLPdZVySlL9b9I34DIvD3-HnLWP209Uv9_rEELWBaEUwSNTwn0Kw4ym7NLeLSlkE-YgJm7YaTRI3cfI__0AZu20cUF4sTHv0YOJ6euOunrYdlmqv1GLdgTRTHIk-A8IA36HfAew-lCXMt-a9HaciCH9Ssm2L9XOMyeIc077AqX6AgliIa0gn0klrmvKXi9_zGPNzgicR32jYlw",
+      "id_token": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImFwcElkLTQ0ZGU4MjRhLWRlMzAtNGI1OC1hOWRkLTMyODJhZjYxMzU1MS0yMDIyLTAzLTAzVDE5OjMyOjM4Ljg2NCIsInZlciI6NH0.eyJpc3MiOiJodHRwczovL3VzLXNvdXRoLmFwcGlkLmNsb3VkLmlibS5jb20vb2F1dGgvdjQvNDRkZTgyNGEtZGUzMC00YjU4LWE5ZGQtMzI4MmFmNjEzNTUxIiwiYXVkIjpbIjRhZTNlYWE5LTdmNjEtNGU0Mi1iNGUzLWNjNzkyZDA3MzI3ZiJdLCJleHAiOjE2NTM1NjMyNzYsInRlbmFudCI6IjQ0ZGU4MjRhLWRlMzAtNGI1OC1hOWRkLTMyODJhZjYxMzU1MSIsImlhdCI6MTY1MzQ3Njg3NiwiZW1haWwiOiJyYW1vcy5qZXJlbXkrMTIwMzA5YzEtZmY4My00ZjViLTgwNzYtOGRkYzA0ZTk0ZWZiQGdtYWlsLmNvbSIsIm5hbWUiOiJyYW1vcy5qZXJlbXkrMTIwMzA5YzEtZmY4My00ZjViLTgwNzYtOGRkYzA0ZTk0ZWZiQGdtYWlsLmNvbSIsInN1YiI6ImUzOTViODhlLWNhMmQtNGRjMS04OTNmLWFlN2YyNWU4NGYxYiIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJyYW1vcy5qZXJlbXkrMTIwMzA5YzEtZmY4My00ZjViLTgwNzYtOGRkYzA0ZTk0ZWZiQGdtYWlsLmNvbSIsImlkZW50aXRpZXMiOlt7InByb3ZpZGVyIjoiY2xvdWRfZGlyZWN0b3J5IiwiaWQiOiIxOWE5M2RmMC0zOTcyLTRhNjktOTQ1OC0xMGFmOTUzMWI4MGUifV0sImFtciI6WyJjbG91ZF9kaXJlY3RvcnkiXX0.EcAn08r48wevPbFsxnoYNxNYJXCCu04laRgH3BmmoupgzdrLJjCDEciVNnxO7ThPpkYIl89UNvHIAm-8SJEAn8VUfEfrle4aMhnLGHAP1rXPhh2pLBGhhJcM5v-bZvMqVK5ukJHk_rpcZImtBTfQn-aS_y1pw1qJA44HMCixZROQxQBnJv8W08FthO6q0xnc6CZNgo3QC2yla2Z_KW3pbWXkkzKhQugyLA_tPnc5rlIQdrUtaHxrd1mdO37Bd08g_rjweKCZauMoOWIJHBZ3_gorv70HKIHA_P4hsFIlJVp9vTEv6PLtjfLt63zhX_uF8NhaFYoJ6BkcV8TwDZ0sgg",
+      "refresh_token": "9279394a711b2fa9775d5974e188d6b768eb61eaaa7aa9eeb78fb8b0d79a48c8dad5139a1b7a19997e4ce515ae77dcff74ea573d345a69a21982af4151ff7b424cc0d803a50abcb1a6d0fc59669a29345cc9334cc10dcea5e6d1d5a41d3b898c6b9bc3fee134a158178a0e366da21c991796ea6f415469cb8a08d26778924ea958c0e1c60d4dc376d55b24dca1455ba1a903085d15efcc849b0a772a52b6208ffd5e61c3face86b2a992a85fdee533a9d4649e24afa84b1c65a0c64267158ffa1457dc9e3c86ac62308739c4ef3ea30de6e31e49bff52fcdf5258e0fdc65d8abf38af1bde6d42d89f4c4163c55603399467c01a06e2b6e07c2f92f7f405fe7ff8b67bbcc3290ff06e0518c08fa9016b26ddc631b34e1c9ffc6bc4fde478886a1342e983bbc240955bdd9899e6b4235047f8dd63c4ca913238faec8eb648a55dfb47224d87575e5352ee5ff4c16d735484fb53345de2be5eb7c3d2e2d0d255db7fd5e47be558c749d8751c27edfd0b8bc49f0c46af6b81d56bd34b6e009816e8d6ceac3bd976d33abb8dd9368be421a6b6b9067ca2867d8cd2979bacf9759c533ca8192650584576d31e914ba2f3d0a6a239accb304d33d4659e307a2873a4bb4efac05b81066cafae51db3d6598f6b405f7bc4f387e9eb112aa9028079a4d490a2d79a5404e592b85d1e1a3febe1fa582cf76bb6644caa46eba87749ab55550a8ad9834497baf10134311a698b01407c1e4953d7b97570e253b44a388e9d58e0483ddf469bbafceeb0bd82c4d751929049a9cff6c5b89c415d35652d200abc94aaf199ad5c8158fa48c90eddeee980438df2927646f0ebc3d37488e0afc954c7373460d76455fa1d3a09dc9b78e2919a609d78eaf8652f4c711c5581ebebd050452855ac13290a61ba3985ba20af7a46290ba196d1137879b679d36622e8fbe7bc51030b149e97f1210c19cffa1ec981df38aaf5bc77e791509a20bedf415a20d2ff81179bd3bf5894ec8a559916d6f2a30548829e621798ee00c91e3b94962d933437298e475dc753b9ab9fde8d6dcab0b77ec0c1fed2589ec2ba8c024e9bff2ebe667aad01461bffb1354c0ca12d0e922a7362b69ccecd5007e12b43626b6ca50019a59fa44da100c574685f00d16435fe8450a2a684e1ac047e49a3e019c5aba7d33340986b6825153b6f8d03753958b97cc251fa7d39bdc7b4f5fd804727e329a1f87f23acdde8fcb45dcbf816104c9ecc0d6b698a7addaafcf7611e520fdf343ef54917bdc028b73721f2e2ee7b",
+      "token_type": "Bearer",
+      "expires_in": 86400,
+      "scope": "openid appid_default appid_readuserattr appid_readprofile appid_writeuserattr appid_authenticated"
+    }
+  },
+  "updateOrgResposne1": {
+    "status": 200,
+    "statusText": "OK",
+    "data": {
+      "id": "0c59634d-9b8c-426d-925f-1c6bf18119fa",
+      "name": "ramos.jeremy@gmail.com",
+      "email": "ramos.jeremy@gmail.com",
+      "preferred_username": "ramos.jeremy@gmail.com",
+      "identities": [
+        {
+          "provider": "cloud_directory",
+          "id": "c08dfe7d-de24-4420-960f-aec1e85183f8",
+          "idpUserInfo": {
+            "displayName": "ramos.jeremy@gmail.com",
+            "active": true,
+            "userName": "ramos.jeremy@gmail.com",
+            "mfaContext": {},
+            "emails": [
+              {
+                "value": "ramos.jeremy@gmail.com",
+                "primary": true
+              }
+            ],
+            "meta": {
+              "lastLogin": "2021-12-17T17:42:54.547Z",
+              "created": "2021-10-07T22:58:22.827Z",
+              "location": "/v1/8da4b5c5-db05-4b38-b527-8fa17bebea33/Users/c08dfe7d-de24-4420-960f-aec1e85183f8",
+              "lastModified": "2021-12-17T17:42:54.561Z",
+              "resourceType": "User"
+            },
+            "schemas": ["urn:ietf:params:scim:schemas:core:2.0:User"],
+            "id": "c08dfe7d-de24-4420-960f-aec1e85183f8",
+            "status": "CONFIRMED",
+            "idpType": "cloud_directory"
+          }
+        }
+      ],
+      "attributes": {
+        "clientId": "c7ab508a-89ad-4b6d-92d0-fc73121f097c",
+        "orgs": ["orgA", "orgB"],
+        "twofastatus": "PENDING"
+      }
+    }
+  },
+  "updateOrgResposne2": {
+    "status": 200,
+    "statusText": "OK",
+    "data": {
+      "id": "0c59634d-9b8c-426d-925f-1c6bf18119fa",
+      "name": "ramos.jeremy@gmail.com",
+      "email": "ramos.jeremy@gmail.com",
+      "preferred_username": "ramos.jeremy@gmail.com",
+      "identities": [
+        {
+          "provider": "cloud_directory",
+          "id": "c08dfe7d-de24-4420-960f-aec1e85183f8",
+          "idpUserInfo": {
+            "displayName": "ramos.jeremy@gmail.com",
+            "active": true,
+            "userName": "ramos.jeremy@gmail.com",
+            "mfaContext": {},
+            "emails": [
+              {
+                "value": "ramos.jeremy@gmail.com",
+                "primary": true
+              }
+            ],
+            "meta": {
+              "lastLogin": "2021-12-17T17:42:54.547Z",
+              "created": "2021-10-07T22:58:22.827Z",
+              "location": "/v1/8da4b5c5-db05-4b38-b527-8fa17bebea33/Users/c08dfe7d-de24-4420-960f-aec1e85183f8",
+              "lastModified": "2021-12-17T17:42:54.561Z",
+              "resourceType": "User"
+            },
+            "schemas": ["urn:ietf:params:scim:schemas:core:2.0:User"],
+            "id": "c08dfe7d-de24-4420-960f-aec1e85183f8",
+            "status": "CONFIRMED",
+            "idpType": "cloud_directory"
+          }
+        }
+      ],
+      "attributes": {
+        "clientId": "c7ab508a-89ad-4b6d-92d0-fc73121f097c",
+        "orgs": ["orgA", "orgB"],
+        "twofastatus": "PENDING"
+      }
+    }
+  }
+}

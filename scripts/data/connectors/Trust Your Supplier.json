@@ -1,0 +1,828 @@
+{
+  "id": "tysConnector",
+  "groups": ["Chainyard", "Trust Your Supplier"],
+  "name": "Chainyard Trust Your Supplier",
+  "description": "TYS get all updated relationships",
+  "type": "Blockchain",
+  "system": "chainyardtrustyoursupplier",
+  "specification": {
+    "openapi": "3.0.0",
+    "info": {
+      "title": "TYS Integration API",
+      "version": "1.0.0"
+    },
+    "servers": [
+      {
+        "url": "https://integration-gateway.slyncer.com",
+        "x-environment": "Development"
+      }
+    ],
+    "paths": {
+      "/v1/relationships": {
+        "get": {
+          "tags": ["default"],
+          "summary": "Relationships",
+          "parameters": [
+            {
+              "name": "updatedSince",
+              "in": "query",
+              "schema": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "example": "2020-01-01T00:00:00.000Z"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Successful response",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "object",
+                    "properties": {
+                      "numberOfRecords": {
+                        "type": "number"
+                      },
+                      "hasMoreRecords": {
+                        "type": "boolean"
+                      },
+                      "nextPageHref": {
+                        "type": "string"
+                      },
+                      "updatedRelationships": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "supplierId": {
+                              "type": "string"
+                            },
+                            "status": {
+                              "type": "string"
+                            },
+                            "supplierHRef": {
+                              "type": "string"
+                            },
+                            "updatedDate": {
+                              "type": "string",
+                              "format": "date-time"
+                            },
+                            "supplierLiaisons": {
+                              "type": "array",
+                              "items": {
+                                "type": "object",
+                                "properties": {
+                                  "email": {
+                                    "type": "string"
+                                  },
+                                  "name": {
+                                    "type": "string"
+                                  },
+                                  "invitationDate": {
+                                    "type": "string",
+                                    "format": "date-time"
+                                  }
+                                }
+                              }
+                            },
+                            "buyerLiaisons": {
+                              "type": "array",
+                              "items": {
+                                "type": "object",
+                                "properties": {
+                                  "email": {
+                                    "type": "string"
+                                  },
+                                  "name": {
+                                    "type": "string"
+                                  }
+                                }
+                              }
+                            },
+                            "numberOfQuestionnairesAssigned": {
+                              "type": "number"
+                            },
+                            "numberOfUnansweredQuestionnaires": {
+                              "type": "number"
+                            },
+                            "statusHistory": {
+                              "type": "array",
+                              "items": {
+                                "type": "object",
+                                "properties": {
+                                  "status": {
+                                    "type": "string"
+                                  },
+                                  "statusChangeDate": {
+                                    "type": "string",
+                                    "format": "date-time"
+                                  },
+                                  "statusChangedBy": {
+                                    "type": "string"
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/v1/suppliers/{supplierId}": {
+        "get": {
+          "tags": ["default"],
+          "summary": "Supplier Profile",
+          "parameters": [
+            {
+              "name": "supplierId",
+              "in": "path",
+              "schema": {
+                "type": "string"
+              },
+              "example": "11eab4b84e7b0a50997d197d82888f36"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Successful response",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "object",
+                    "properties": {
+                      "companyName": {
+                        "type": "string"
+                      },
+                      "legalName": {
+                        "type": "string"
+                      },
+                      "primaryPhoneNumber": {
+                        "type": "string"
+                      },
+                      "taxCountry": {
+                        "type": "string"
+                      },
+                      "businessDescription": {
+                        "type": "string"
+                      },
+                      "dateEstablished": {
+                        "type": "string",
+                        "format": "date-time"
+                      },
+                      "emailAddress": {
+                        "type": "string"
+                      },
+                      "nativeBusinessName": {
+                        "type": "string"
+                      },
+                      "nativeLegalName": {
+                        "type": "string"
+                      },
+                      "numberOfFullTimeEmployees": {
+                        "type": "number"
+                      },
+                      "numberOfPartTimeEmployees": {
+                        "type": "number"
+                      },
+                      "primaryFaxNumber": {
+                        "type": "string"
+                      },
+                      "website": {
+                        "type": "string"
+                      },
+                      "unspsc": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      },
+                      "lastLogin": {
+                        "type": "string",
+                        "format": "date-time"
+                      },
+                      "lastLoginBy": {
+                        "type": "string"
+                      },
+                      "managementProfile": {
+                        "type": "object",
+                        "properties": {
+                          "ceos": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "title": {
+                                  "type": "string"
+                                },
+                                "firstName": {
+                                  "type": "string"
+                                },
+                                "lastName": {
+                                  "type": "string"
+                                },
+                                "middleName": {
+                                  "type": "string"
+                                },
+                                "nativeFirstName": {
+                                  "type": "string"
+                                },
+                                "nativeMiddleName": {
+                                  "type": "string"
+                                },
+                                "nativeLastName": {
+                                  "type": "string"
+                                },
+                                "yearOfBirth": {
+                                  "type": "string"
+                                },
+                                "primaryPhone": {
+                                  "type": "string"
+                                },
+                                "secondaryPhone": {
+                                  "type": "string"
+                                },
+                                "email": {
+                                  "type": "string"
+                                },
+                                "alternateEmail": {
+                                  "type": "string"
+                                },
+                                "address": {
+                                  "type": "object",
+                                  "properties": {
+                                    "street1": {
+                                      "type": "string"
+                                    },
+                                    "street2": {
+                                      "type": "string"
+                                    },
+                                    "city": {
+                                      "type": "string"
+                                    },
+                                    "state": {
+                                      "type": "string"
+                                    },
+                                    "country": {
+                                      "type": "string"
+                                    },
+                                    "postalCode": {
+                                      "type": "string"
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          },
+                          "cfos": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "title": {
+                                  "type": "string"
+                                },
+                                "firstName": {
+                                  "type": "string"
+                                },
+                                "lastName": {
+                                  "type": "string"
+                                },
+                                "middleName": {
+                                  "type": "string"
+                                },
+                                "nativeFirstName": {
+                                  "type": "string"
+                                },
+                                "nativeMiddleName": {
+                                  "type": "string"
+                                },
+                                "nativeLastName": {
+                                  "type": "string"
+                                },
+                                "yearOfBirth": {
+                                  "type": "string"
+                                },
+                                "primaryPhone": {
+                                  "type": "string"
+                                },
+                                "secondaryPhone": {
+                                  "type": "string"
+                                },
+                                "email": {
+                                  "type": "string"
+                                },
+                                "alternateEmail": {
+                                  "type": "string"
+                                },
+                                "address": {
+                                  "type": "object",
+                                  "properties": {
+                                    "street1": {
+                                      "type": "string"
+                                    },
+                                    "street2": {
+                                      "type": "string"
+                                    },
+                                    "city": {
+                                      "type": "string"
+                                    },
+                                    "state": {
+                                      "type": "string"
+                                    },
+                                    "country": {
+                                      "type": "string"
+                                    },
+                                    "postalCode": {
+                                      "type": "string"
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          },
+                          "dos": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "title": {
+                                  "type": "string"
+                                },
+                                "firstName": {
+                                  "type": "string"
+                                },
+                                "lastName": {
+                                  "type": "string"
+                                },
+                                "middleName": {
+                                  "type": "string"
+                                },
+                                "nativeFirstName": {
+                                  "type": "string"
+                                },
+                                "nativeMiddleName": {
+                                  "type": "string"
+                                },
+                                "nativeLastName": {
+                                  "type": "string"
+                                },
+                                "yearOfBirth": {
+                                  "type": "string"
+                                },
+                                "primaryPhone": {
+                                  "type": "string"
+                                },
+                                "secondaryPhone": {
+                                  "type": "string"
+                                },
+                                "email": {
+                                  "type": "string"
+                                },
+                                "alternateEmail": {
+                                  "type": "string"
+                                },
+                                "address": {
+                                  "type": "object",
+                                  "properties": {
+                                    "street1": {
+                                      "type": "string"
+                                    },
+                                    "street2": {
+                                      "type": "string"
+                                    },
+                                    "city": {
+                                      "type": "string"
+                                    },
+                                    "state": {
+                                      "type": "string"
+                                    },
+                                    "country": {
+                                      "type": "string"
+                                    },
+                                    "postalCode": {
+                                      "type": "string"
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "contacts": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "title": {
+                              "type": "string"
+                            },
+                            "firstName": {
+                              "type": "string"
+                            },
+                            "lastName": {
+                              "type": "string"
+                            },
+                            "middleName": {
+                              "type": "string"
+                            },
+                            "nativeFirstName": {
+                              "type": "string"
+                            },
+                            "nativeMiddleName": {
+                              "type": "string"
+                            },
+                            "nativeLastName": {
+                              "type": "string"
+                            },
+                            "yearOfBirth": {
+                              "type": "string"
+                            },
+                            "primaryPhone": {
+                              "type": "string"
+                            },
+                            "secondaryPhone": {
+                              "type": "string"
+                            },
+                            "email": {
+                              "type": "string"
+                            },
+                            "alternateEmail": {
+                              "type": "string"
+                            },
+                            "address": {
+                              "type": "object",
+                              "properties": {
+                                "street1": {
+                                  "type": "string"
+                                },
+                                "street2": {
+                                  "type": "string"
+                                },
+                                "city": {
+                                  "type": "string"
+                                },
+                                "state": {
+                                  "type": "string"
+                                },
+                                "country": {
+                                  "type": "string"
+                                },
+                                "postalCode": {
+                                  "type": "string"
+                                }
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "financialProfile": {
+                        "type": "object",
+                        "properties": {
+                          "financial": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "year": {
+                                  "type": "number"
+                                },
+                                "asset": {
+                                  "type": "number"
+                                },
+                                "liability": {
+                                  "type": "number"
+                                },
+                                "profit": {
+                                  "type": "number"
+                                },
+                                "revenue": {
+                                  "type": "number"
+                                }
+                              }
+                            }
+                          },
+                          "currency": {
+                            "type": "string"
+                          },
+                          "stockExchange": {
+                            "type": "string"
+                          },
+                          "w9BusinessName": {
+                            "type": "string"
+                          },
+                          "stockSymbol": {
+                            "type": "string"
+                          },
+                          "w9Name": {
+                            "type": "string"
+                          }
+                        }
+                      },
+                      "taxProfile": {
+                        "type": "object",
+                        "properties": {
+                          "businessType": {
+                            "type": "string"
+                          },
+                          "dunsNumber": {
+                            "type": "string"
+                          },
+                          "taxRegistrationNumber": {
+                            "type": "string"
+                          },
+                          "taxRegistrationDocuments": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "title": {
+                                  "type": "string"
+                                },
+                                "documentRef": {
+                                  "type": "string"
+                                }
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "ownershipProfile": {
+                        "type": "object",
+                        "properties": {
+                          "individualOwners": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "firstName": {
+                                  "type": "string"
+                                },
+                                "middleName": {
+                                  "type": "string"
+                                },
+                                "lastName": {
+                                  "type": "string"
+                                },
+                                "nativeFirstName": {
+                                  "type": "string"
+                                },
+                                "nativeMiddleName": {
+                                  "type": "string"
+                                },
+                                "nativeLastName": {
+                                  "type": "string"
+                                },
+                                "yearOfBirth": {
+                                  "type": "string"
+                                },
+                                "ownershipPercentage": {
+                                  "type": "string"
+                                }
+                              }
+                            }
+                          },
+                          "parentCompany": {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            }
+                          }
+                        }
+                      },
+                      "addresses": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "addressType": {
+                              "type": "string"
+                            },
+                            "city": {
+                              "type": "string"
+                            },
+                            "country": {
+                              "type": "string"
+                            },
+                            "postalCode": {
+                              "type": "string"
+                            },
+                            "state": {
+                              "type": "string"
+                            },
+                            "street1": {
+                              "type": "string"
+                            },
+                            "street2": {
+                              "type": "string"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/v1/suppliers/{supplierId}/questionnaires/{questionnaireId}": {
+        "get": {
+          "tags": ["default"],
+          "summary": "Questionnaire",
+          "parameters": [
+            {
+              "name": "supplierId",
+              "in": "path",
+              "schema": {
+                "type": "string"
+              },
+              "example": "11eab4b84e7b0a50997d197d82888f36"
+            },
+            {
+              "name": "questionnaireId",
+              "in": "path",
+              "schema": {
+                "type": "string"
+              },
+              "example": "11e8a7084046f85086d683ea662ae7b0"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Successful response",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "object",
+                    "properties": {
+                      "_id": {
+                        "type": "string"
+                      },
+                      "responderEntityID": {
+                        "type": "string"
+                      },
+                      "questionnaire": {
+                        "type": "object",
+                        "properties": {
+                          "questionnaireName": {
+                            "type": "string"
+                          },
+                          "questionnaireNotes": {
+                            "type": "string"
+                          },
+                          "category": {
+                            "type": "string"
+                          },
+                          "version": {
+                            "type": "string"
+                          },
+                          "questions": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "questionID": {
+                                  "type": "string"
+                                },
+                                "question": {
+                                  "type": "string"
+                                },
+                                "answer": {
+                                  "type": "string"
+                                },
+                                "additionalOptions": {
+                                  "type": "object",
+                                  "properties": {
+                                    "question": {
+                                      "type": "string"
+                                    },
+                                    "answer": {
+                                      "type": "string"
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          },
+                          "questionnaireID": {
+                            "type": "string"
+                          },
+                          "total": {
+                            "type": "number"
+                          }
+                        }
+                      },
+                      "createdBy": {
+                        "type": "string"
+                      },
+                      "creationDate": {
+                        "type": "string",
+                        "format": "date-time"
+                      },
+                      "isSubmitted": {
+                        "type": "boolean"
+                      },
+                      "updatedBy": {
+                        "type": "string"
+                      },
+                      "updatedDate": {
+                        "type": "string",
+                        "format": "date-time"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "components": {
+      "securitySchemes": {
+        "connectorAuth": {
+          "type": "http",
+          "scheme": "bearer",
+          "bearerFormat": "JWT",
+          "x-source": {
+            "authflow-id": "tysToken",
+            "authflow-input": [
+              {
+                "in": "query",
+                "name": "client_id",
+                "description": "Client ID",
+                "required": true,
+                "schema": {
+                  "type": "string",
+                  "example": "Kjkjdlkfhhjklylkjl39hjfhfa"
+                }
+              },
+              {
+                "in": "query",
+                "name": "client_secret",
+                "required": true,
+                "description": "Client Secret",
+                "schema": {
+                  "type": "string",
+                  "example": "Xc3hkah99ljlk3hjhjh8haklfhlj"
+                }
+              },
+              {
+                "in": "query",
+                "name": "username",
+                "description": "Username",
+                "required": true,
+                "schema": {
+                  "type": "string",
+                  "example": "abcdefgh"
+                }
+              },
+              {
+                "in": "query",
+                "name": "password",
+                "required": true,
+                "description": "Password",
+                "schema": {
+                  "type": "string",
+                  "example": "123456ABCDEF"
+                }
+              },
+              {
+                "in": "query",
+                "name": "environment",
+                "required": true,
+                "description": "Trust Your Supplier Selected Environment",
+                "schema": {
+                  "type": "string",
+                  "example": "123456ABCDEF"
+                }
+              }
+            ],
+            "authflow-response": {
+              "properties": {
+                "tysToken": {
+                  "type": "string",
+                  "description": "The Trust Your Supplier Token"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "security": [
+      {
+        "connectorAuth": []
+      }
+    ]
+  }
+}

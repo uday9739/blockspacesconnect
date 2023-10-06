@@ -1,0 +1,28 @@
+apiVersion: v1
+kind: Service
+metadata:
+  namespace: bsc-staging
+  name: bsc-frontend-staging
+spec:
+  type: NodePort
+  ports:
+  - name: http
+    port: 3001
+    targetPort: 3001
+  selector:
+    app: bsc-frontend-staging
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  namespace: bsc-staging
+  name: bsc-core-staging
+spec:
+  type: NodePort
+  ports:
+  - name: http
+    port: 3000
+    targetPort: 3000
+  selector:
+    app: bsc-core-staging

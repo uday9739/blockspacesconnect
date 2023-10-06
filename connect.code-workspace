@@ -1,0 +1,273 @@
+{
+  "folders": [
+    {
+      "path": "core"
+    },
+    {
+      "path": "admin-api"
+    },
+    {
+      "path": "frontend/admin-portal"
+    },
+    {
+      "path": "frontend/connect-ui"
+    },
+    {
+      "path": "db-migrations"
+    },
+    {
+      "path": "shared"
+    },
+    {
+      "name": "root",
+      "path": "./"
+    }
+  ],
+  "settings": {
+    "editor.formatOnSave": false,
+    "editor.insertSpaces": true,
+    "editor.tabSize": 2,
+    "eslint.debug": true,
+    "eslint.format.enable": true,
+    "eslint.probe": ["javascript", "javascriptreact", "typescript", "typescriptreact", "html", "vue", "markdown", "nest"],
+    "files.exclude": {
+      "**/.git": true,
+      "**/.svn": true,
+      "**/.hg": true,
+      "**/CVS": true,
+      "**/.DS_Store": true,
+      "**/Thumbs.db": true,
+      "core": true,
+      "frontend/connect-ui": true,
+      "frontend/admin-portal": true,
+			"admin-api":true,
+      "shared": true,
+      "backend": true,
+      "jobserver": true,
+      "axios-oauth-client": true,
+      "ui-backend": true,
+      "**/__archive__": true,
+      "**/ARCHIVE": true
+    },
+    "jest.disabledWorkspaceFolders": ["root", "db-migrations"],
+    "[typescript]": {
+      "editor.defaultFormatter": "vscode.typescript-language-features"
+    },
+    "[json]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[jsonc]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[javascript]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "cSpell.words": ["BLOCKSPACES", "endregion", "Millis", "ONBOARDED", "Payreq", "Pokt", "quickbooks", "Quickbooks", "salesreceipt", "satoshis", "sats", "txns", "Txns", "UTXO"]
+  },
+  "launch": {
+    "version": "0.2.0",
+    "configurations": [
+      {
+        "name": "Attach to Core",
+        "port": 9229,
+        "request": "attach",
+        "skipFiles": ["<node_internals>/**", "**/*.test.*"],
+        "sourceMaps": true,
+        "type": "node",
+        "preLaunchTask": "Debug core"
+      },
+      {
+        "name": "Attach by Process ID",
+        "processId": "${command:PickProcess}",
+        "request": "attach",
+        "skipFiles": ["<node_internals>/**"],
+        "type": "node"
+      }
+    ]
+  },
+  "tasks": {
+    "version": "2.0.0",
+    "tasks": [
+      {
+        "label": "Debug core",
+        "detail": "run core in debug mode",
+        "type": "process",
+        "options": {
+          "cwd": "${workspaceFolder:core}"
+        },
+        "command": "npm",
+        "args": ["run", "debug"],
+        "isBackground": true,
+        "problemMatcher": [
+          {
+            "base": "$tsc-watch",
+            "background": {
+              "activeOnStart": true,
+              "beginsPattern": "Starting Nest application...",
+              "endsPattern": "Nest application successfully started"
+            }
+          }
+        ]
+      },
+      {
+        "label": "Run core - dev",
+        "detail": "run core in dev mode",
+        "type": "process",
+        "options": {
+          "cwd": "${workspaceFolder:core}"
+        },
+        "command": "npm",
+        "args": ["run", "dev"],
+        "isBackground": true,
+        "problemMatcher": [
+          {
+            "base": "$tsc-watch",
+            "background": {
+              "activeOnStart": true,
+              "beginsPattern": "Starting Nest application...",
+              "endsPattern": "Nest application successfully started"
+            }
+          }
+        ]
+      },
+      {
+        "label": "Run frontend - dev",
+        "detail": "runs frontend in dev mode",
+        "type": "process",
+        "options": {
+          "cwd": "${workspaceFolder:connect-ui}"
+        },
+        "command": "npm",
+        "args": ["run", "dev"],
+        "isBackground": true,
+        "problemMatcher": []
+      },
+      {
+        "label": "Run frontend + debug core",
+        "detail": "runs frontend in dev mode + core in debug mode",
+        "dependsOn": ["Run frontend - dev", "Debug core"],
+        "problemMatcher": []
+      },
+      {
+        "label": "Run frontend + core - dev",
+        "detail": "runs frontend in dev mode + core in dev mode",
+        "dependsOn": ["Run frontend - dev", "Run core - dev"],
+        "problemMatcher": []
+      },
+      {
+        "label": "Init - Environment Variables",
+        "detail": "initializes environment variables, overwriting existing values",
+        "type": "shell",
+        "command": "npm run bsc:init:clean",
+        "options": {
+          "cwd": "${workspaceFolder:root}"
+        },
+        "promptOnClose": false,
+        "problemMatcher": []
+      },
+      {
+        "label": "Init - env + npm",
+        "detail": "initialize environment variables and reinstall npm packages",
+        "type": "shell",
+        "command": "npm run bsc:init:clean && npm run bsc:ci",
+        "options": {
+          "cwd": "${workspaceFolder:root}"
+        },
+        "problemMatcher": []
+      },
+      {
+        "label": "Type check frontend",
+        "group": "build",
+        "options": { "cwd": "${workspaceFolder:connect-ui}" },
+        "type": "process",
+        "command": "npx",
+        "args": ["tsc", "--noEmit"],
+        "isBuildCommand": true,
+        "problemMatcher": "$tsc"
+      },
+      {
+        "label": "Type check frontend - watch",
+        "group": "build",
+        "options": { "cwd": "${workspaceFolder:connect-ui}" },
+        "type": "process",
+        "command": "npx",
+        "args": ["tsc", "--noEmit", "--watch"],
+        "isBackground": true,
+        "problemMatcher": "$tsc-watch"
+      },
+      {
+        "label": "Migrations: create",
+        "detail": "create a new MongoDB migration",
+        "type": "shell",
+        "options": { "cwd": "${workspaceFolder:db-migrations}" },
+        "command": "npm",
+        "args": ["run", "migrate:create", "${input:migrationName}"],
+        "problemMatcher": []
+      },
+      {
+        "label": "Migrations: run",
+        "detail": "apply MongoDB migrations",
+        "type": "shell",
+        "options": { "cwd": "${workspaceFolder:db-migrations}" },
+        "command": "npm",
+        "args": ["run", "migrate"],
+        "problemMatcher": []
+      },
+      {
+        "label": "Migrations: down",
+        "detail": "undo the most recently applied migration",
+        "type": "shell",
+        "options": { "cwd": "${workspaceFolder:db-migrations}" },
+        "command": "npm",
+        "args": ["run", "migrate:down"],
+        "problemMatcher": []
+      }
+    ],
+    "inputs": [
+      {
+        "type": "promptString",
+        "description": "Enter a migration name",
+        "id": "migrationName"
+      }
+    ]
+  },
+  "extensions": {
+    "recommendations": [
+      "ibrahimcesar.ibrahimcesar-nextjs-developer-pack",
+      "nicoespeon.abracadabra",
+      "formulahendry.auto-close-tag",
+      "formulahendry.auto-rename-tag",
+      "aaron-bond.better-comments",
+      "alefragnani.Bookmarks",
+      "streetsidesoftware.code-spell-checker",
+      "naumovs.color-highlight",
+      "ms-azuretools.vscode-docker",
+      "mikestead.dotenv",
+      "dbaeumer.vscode-eslint",
+      "mhutchie.git-graph",
+      "eamodio.gitlens",
+      "oderwat.indent-rainbow",
+      "heaths.vscode-guid",
+      "VisualStudioExptTeam.vscodeintellicode",
+      "xabikos.JavaScriptSnippets",
+      "Orta.vscode-jest",
+      "andys8.jest-snippets",
+      "atlassian.atlascode",
+      "shd101wyy.markdown-preview-enhanced",
+      "DavidAnson.vscode-markdownlint",
+      "mongodb.mongodb-vscode",
+      "PulkitGangwar.nextjs-snippets",
+      "christian-kohler.path-intellisense",
+      "esbenp.prettier-vscode",
+      "richie5um2.vscode-sort-json",
+      "yatki.vscode-surround",
+      "meganrogge.template-string-converter",
+      "Gruntfuggly.todo-tree",
+      "BriteSnow.vscode-toggle-quotes",
+      "shardulm94.trailing-spaces",
+      "ashinzekene.nestjs",
+      "styled-components.vscode-styled-components",
+      "redhat.vscode-yaml"
+    ]
+  }
+}

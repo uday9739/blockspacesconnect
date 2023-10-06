@@ -1,0 +1,87 @@
+{
+  "validGetSummaryResponse": {
+    "userFleet": {
+      "poktAmounts": {
+        "total": 100000,
+        "unstaked": 80000
+      },
+      "nodeCounts": {
+        "total": 1000,
+        "healthy": 999,
+        "unhealthy": 1
+      }
+    }
+  },
+  "failedGetSummaryResponse":{
+    "success": false,
+    "failureReason": "Pokt network summary data is unavailable."
+  },
+  "poktNetworkDataSeriesWholeNetwork": {
+    "context": "network",
+    "filter": {
+      "interval": "daily",
+      "dateRange": {
+        "start": "Wed Jun 08 2022 06:44:09 GMT-0400 (Eastern Daylight Time)",
+        "end": "Wed Jun 15 2022 06:44:09 GMT-0400 (Eastern Daylight Time)"
+      }
+    },
+    "units": "pokt",
+    "categories": ["staked", "unstaked"],
+    "totals": [
+      {
+        "category": "staked",
+        "amount": 100,
+        "changedBy": 1,
+        "changedByPct": 1,
+        "icon": "staked icon"
+      },
+      {
+        "category": "unstaked",
+        "amount": 200,
+        "changedBy": 2,
+        "changedByPct": 1,
+        "icon": "unstaked icon"
+      }
+    ],
+    "data": [
+      {
+        "category": "staked",
+        "values": [1,2,3,4,5,6,7]
+      },
+      {
+        "category": "unstaked",
+        "values": [1,2,3,4,5,6,7]
+      }
+    ]
+  },
+  "whmcsClientIdToNodeId": [
+    {
+    "cid": 1,
+    "nodes": [
+      1233,
+      34234,
+      3445,
+      665465
+    ]
+  },
+    {
+      "cid": 2,
+      "nodes": [
+        12339,
+        342394,
+        34459,
+        6654659
+      ]
+    },
+    {
+      "cid": 3,
+      "nodes": [
+        123398,
+        3423948,
+        344598,
+        66546598
+      ]
+    }
+  ]
+}
+

@@ -1,0 +1,17 @@
+{
+  "rootDir": ".",
+  "verbose": false,
+  "testEnvironment": "node",
+  "moduleNameMapper": {},
+  "transform": {
+  "^.+\\.tsx?$": "ts-jest"
+},
+  "globals": {
+  "ts-jest": {
+    "diagnostics": {
+      "warnOnly": true
+    }
+  }
+},
+  "preset": "ts-jest"
+}

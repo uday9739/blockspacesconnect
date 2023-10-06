@@ -1,0 +1,350 @@
+{
+  "id": "farmToPlateConnector",
+  "groups": ["Paramount", "Farm To Plate"],
+  "name": "Paramount Farm To Plate",
+  "type": "Blockchain",
+  "system":"paramount",
+  "description": "Parmaount Farm To Plate",
+  "specification": {
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Parmount Farm To Plate",
+    "description": "Parmount Farm To Plate",
+    "version": "1-oas3",
+    "x-service-version": "0.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://alpha.farmtoplate.io/sdk/api/v2",
+      "x-environment": "Development"
+    }
+  ],
+  "security": [
+    {
+      "connectorAuth": []
+    }
+  ],
+  "paths": {
+    "/products/{productId}": {
+      "get": {
+        "tags": [
+          "Products"
+        ],
+        "description": "Query Products",
+        "parameters": [
+          {
+            "name": "productId",
+            "in": "path",
+            "description": "The Farm to Plate product ID",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "string"
+            },
+            "example": "TEST0003"
+          },
+          {
+            "name": "orgName",
+            "in": "query",
+            "description": "The Organization Name",
+            "required": true,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "org1"
+          },
+          {
+            "name": "user",
+            "in": "query",
+            "description": "The user email",
+            "required": true,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "user@domain.com"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_200"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/products": {
+      "post": {
+        "tags": [
+          "Products"
+        ],
+        "description": "Add Products",
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/products_body"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Item": {
+        "title": "Item",
+        "type": "object",
+        "properties": {
+          "ingredientName": {
+            "title": "Ingredient Name",
+            "type": "string",
+            "nullable": false,
+            "example": "Wheat"
+          }
+        }
+      },
+      "products_body": {
+        "type": "object",
+        "properties": {
+          "orgId": {
+            "title": "Organization Id",
+            "type": "string",
+            "nullable": false,
+            "example": "org1"
+          },
+          "orgName": {
+            "title": "Organziation Name",
+            "type": "string",
+            "nullable": false,
+            "example": "org1"
+          },
+          "user": {
+            "title": "User email address",
+            "type": "string",
+            "nullable": false,
+            "example": "user@domain.com"
+          },
+          "productId": {
+            "title": "Product ID",
+            "type": "string",
+            "nullable": false,
+            "example": "TEST0003"
+          },
+          "data": {
+            "$ref": "#/components/schemas/Product Data"
+          }
+        }
+      },
+      "Item_1": {
+        "title": "Item",
+        "type": "object",
+        "properties": {
+          "UoM": {
+            "title": "Unit of Measure",
+            "type": "string",
+            "nullable": false,
+            "example": "KG"
+          },
+          "amount": {
+            "title": "Amount",
+            "type": "string",
+            "nullable": false,
+            "example": "5"
+          },
+          "nutrient": {
+            "title": "Nutrient",
+            "type": "string",
+            "nullable": false,
+            "example": "Loon"
+          }
+        }
+      },
+      "inline_response_200": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "string",
+            "description": "Success or Failure"
+          },
+          "message": {
+            "type": "string",
+            "description": "Success or failure message"
+          },
+          "payload": {
+            "$ref": "#/components/schemas/inline_response_200_payload"
+          }
+        }
+      },
+      "inline_response_200_payload_productData": {
+        "type": "object",
+        "properties": {
+          "version": {
+            "type": "string",
+            "description": "Product Version"
+          },
+          "docType": {
+            "type": "string",
+            "description": "Document Type"
+          },
+          "productId": {
+            "type": "string",
+            "description": "Farm To Plate Product ID"
+          },
+          "productName": {
+            "type": "string",
+            "description": "Product Name"
+          }
+        }
+      },
+      "inline_response_200_payload": {
+        "type": "object",
+        "properties": {
+          "productData": {
+            "$ref": "#/components/schemas/inline_response_200_payload_productData"
+          }
+        }
+      },
+      "Product Data": {
+        "title": "Product Data",
+        "type": "object",
+        "properties": {
+          "productId": {
+            "title": "Product ID",
+            "type": "string",
+            "nullable": false,
+            "example": "TEST0003"
+          },
+          "productName": {
+            "title": "Product Name",
+            "type": "string",
+            "nullable": false,
+            "example": "Yerba Mate expresso grade6"
+          },
+          "productCategory": {
+            "title": "Product Category",
+            "type": "string",
+            "nullable": false,
+            "example": "Food and Beverage"
+          },
+          "productUOM": {
+            "title": "Prodcut Unit of Measure",
+            "type": "string",
+            "nullable": false,
+            "example": "KG"
+          },
+          "productGTIN": {
+            "title": "Product GTIN",
+            "type": "string",
+            "nullable": false,
+            "example": "TEST0003"
+          },
+          "productF2PID": {
+            "title": "Product Farm to Plate ID",
+            "type": "string",
+            "nullable": false,
+            "example": ""
+          },
+          "docType": {
+            "title": "Document Type",
+            "type": "string",
+            "nullable": false,
+            "example": "PRODUCT"
+          },
+          "consumptionGuidelines": {
+            "title": "Consumption Guidelines",
+            "type": "string",
+            "nullable": false,
+            "example": "nothing"
+          },
+          "isActive": {
+            "title": "Is Product Active?",
+            "type": "string",
+            "nullable": false,
+            "example": "0"
+          },
+          "ingredients": {
+            "title": "Ingredients",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Item"
+            }
+          },
+          "nutritionalFacts": {
+            "title": "Nutritional Facts",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Item_1"
+            }
+          }
+        }
+      }
+    },
+    "securitySchemes": {
+      "connectorAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT",
+        "x-source": {
+          "authflow-id": "farmToPlateToken",
+          "authflow-input": [
+            {
+              "in": "query",
+              "name": "username",
+              "description": "User email address",
+              "required": true,
+              "schema": {
+                "type": "string",
+                "example": "user@domain.com"
+              }
+            },
+            {
+              "in": "query",
+              "name": "password",
+              "required": true,
+              "description": "User Password",
+              "schema": {
+                "type": "string",
+                "example": "123456ABCDEF"
+              }
+            }
+          ],
+          "authflow-response": {
+            "properties": {
+              "token": {
+                "type": "string",
+                "description": "The Farm To Plate Token"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+}

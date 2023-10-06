@@ -1,0 +1,56 @@
+pipeline {
+  agent {
+    node {
+      label 'devstaging'
+    }
+  }
+  environment {
+	DOCKER_TAG = sh (script: 'npm run bsc:version --silent', returnStdout: true).trim()
+	STAGING_VAULT=credentials('staging.VAULT_APP_ROLE_ID')
+	PRODUCTION_VAULT=credentials('production.VAULT_APP_ROLE_ID')
+    }
+
+  stages {
+    stage('Initialize') {
+      steps {
+        sh 'echo $(hostname)'
+	sh 'echo ${DOCKER_TAG}'
+      }
+    }
+
+    stage('Build and Push Staging') {
+      environment {
+        ENVIRONMENT = 'staging'
+	VAULT = 'http://23.23.108.243:8200/v1'
+       }
+      steps {
+ 	sh 'echo ${ENVIRONMENT}'
+        sh 'npm run bsc:install:clean'
+        sh 'npm run bsc:init:docker -- --targetEnv=staging --vault-url=${VAULT} --vault-role-id=${STAGING_VAULT_USR} --vault-secret-id=${STAGING_VAULT_PSW}'
+        sh 'docker-compose --profile core build'
+	sh 'docker-compose push bsc-core bsc-frontend'
+      }
+    }
+
+    stage('Build and Push Production') {
+      environment {
+        ENVIRONMENT = 'production'
+	VAULT = 'https://v.blockspaces.us:8200/v1'
+       }
+      steps {
+	sh 'echo ${ENVIRONMENT}'
+        sh 'npm run bsc:install:clean'
+        sh 'npm run bsc:init:docker -- --targetEnv=production --vault-url=${VAULT} --vault-role-id=${PRODUCTION_VAULT_USR} --vault-secret-id=${PRODUCTION_VAULT_PSW}'
+        sh 'docker-compose --profile core build'
+	sh 'docker-compose push bsc-core bsc-frontend'
+      }
+    }
+
+    stage('clean up old images') {
+      steps {
+        sh 'docker image prune -a --force --filter "until=72h"'
+      }
+    }
+
+  }
+}

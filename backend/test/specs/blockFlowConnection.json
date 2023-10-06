@@ -1,0 +1,13 @@
+{
+  "id": "e8a2ad0c-ab5a-4096-a2ae-b6d7fb44c783",
+  "systemId": "blockspaces2",
+  "connectorId": "blockspacesconnectresponsetemp",
+  "activeMethod": {
+    "name": "/response",
+    "method": "GET",
+    "description": "",
+    "parameters": [[{}], [{}], [{}], [{}]],
+    "responses": [[{}]]
+  },
+  "server": ""
+}

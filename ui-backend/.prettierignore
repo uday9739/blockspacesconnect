@@ -1,0 +1,11 @@
+# .prettierignore
+
+.vscode
+config
+logs
+node_module
+Postman Samples
+protos
+package-lock.json
+src/models
+.eslintrc.json

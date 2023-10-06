@@ -1,0 +1,36 @@
+{
+  "getInfo": {
+    "data": {
+      "version": "1",
+      "commit_hash": "222",
+      "identity_pubkey": "333",
+      "alias": "alias",
+      "color": "333333",
+      "num_pending_channels": 44,
+      "num_active_channels": 55,
+      "num_inactive_channels": 66,
+      "num_peers": 77,
+      "block_height": 88,
+      "block_hash": "999",
+      "best_header_timestamp": 788778567,
+      "synced_to_chain": true,
+      "synced_to_graph": true,
+      "testnet": true,
+      "chains": {},
+      "uris": ["555"],
+      "features": {}
+    }
+  },
+  "nodeBalance": {
+    "data": {
+      "balance": 100,
+      "pending_open_balance": 200,
+      "local_balance": 300,
+      "remote_balance": 400,
+      "unsettled_local_balance": 500,
+      "unsettled_remote_balance": 600,
+      "pending_open_local_balance": 700,
+      "pending_open_remote_balance": 800
+    }
+  }
+}

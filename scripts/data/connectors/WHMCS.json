@@ -1,0 +1,317 @@
+{
+  "id": "whmcs",
+  "groups": ["Samples", "WHMCS"],
+  "name": "Web Hosting Managment Control system",
+  "description": "A Sample ERP",
+  "system": "whmcs",
+  "type": "System",
+  "specification": {
+    "openapi": "3.0.0",
+    "info": {
+      "description": "This is a sample application",
+      "version": "1.0.0",
+      "title": "WHMCS",
+      "termsOfService": "",
+      "contact": {
+        "email": "chris@blockspaces.com"
+      },
+      "license": {
+        "name": "Apache 2.0",
+        "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+      }
+    },
+    "servers": [
+      {
+        "url": "https://support.blockspaces.io/includes",
+        "x-environment": "Development"
+      }
+    ],
+    "tags": [],
+    "paths": {
+      "/api.php": {
+        "post": {
+          "tags": [],
+          "summary": "WHMCS API",
+          "parameters": [
+            {
+              "name": "action",
+              "in": "query",
+              "description": "Specific action requested",
+              "required": true,
+              "schema": {
+                "type": "string",
+                "enum": ["GetClients", "GetClientProducts"],
+                "example": "GetClients"
+              }
+            },
+            {
+              "name": "clientid",
+              "in": "query",
+              "description": "The customer account number",
+              "schema": {
+                "type": "string",
+                "example": 10
+              }
+            },
+            {
+              "name": "limitstart",
+              "in": "query",
+              "description": "The offset for the returned log data",
+              "schema": {
+                "type": "integer",
+                "example": 0
+              }
+            },
+            {
+              "name": "limitnum",
+              "in": "query",
+              "description": "The number of records to return",
+              "schema": {
+                "type": "integer",
+                "example": 25
+              }
+            },
+            {
+              "name": "sorting",
+              "in": "query",
+              "description": "The direction to sort the results. ASC or DESC. Default: ASC",
+              "schema": {
+                "type": "string",
+                "example": "ASC",
+                "enum": ["ASC", "DESC"]
+              }
+            },
+            {
+              "name": "status",
+              "in": "query",
+              "description": "Optional desired Client Status. ‘Active’, ‘Inactive’, or ‘Closed’",
+              "schema": {
+                "type": "string",
+                "example": "Active",
+                "enum": ["Active", "Inactive", "Closed"]
+              }
+            },
+            {
+              "name": "search",
+              "in": "query",
+              "description": "The search term to look for at the start of email, firstname, lastname, fullname or companyname",
+              "schema": {
+                "type": "string",
+                "example": "email address, first name, last name"
+              }
+            },
+            {
+              "name": "orderby",
+              "in": "query",
+              "description": "The column to order by. id, firstname, lastname, companyname, email, groupid, datecreated, status",
+              "schema": {
+                "type": "string",
+                "example": "id, firstname, lastname, companyname, email, groupid, datecreated, status"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Successful",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "object",
+                    "properties": {
+                      "result": {
+                        "type": "string"
+                      },
+                      "totalresults": {
+                        "type": "number",
+                        "example": 0
+                      },
+                      "startnumber": {
+                        "type": "number",
+                        "example": 0
+                      },
+                      "numreturned": {
+                        "type": "number",
+                        "example": 0
+                      },
+                      "clients": {
+                        "type": "object",
+                        "properties": {
+                          "client": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "id": {
+                                  "type": "number",
+                                  "example": 0
+                                },
+                                "firstname": {
+                                  "type": "string",
+                                  "example": "Steve"
+                                },
+                                "lastname": {
+                                  "type": "string",
+                                  "example": "Tyler"
+                                },
+                                "companyname": {
+                                  "type": "string",
+                                  "example": "Aerosmith"
+                                },
+                                "email": {
+                                  "type": "string",
+                                  "format": "email",
+                                  "example": "steve@dabblelab.com"
+                                },
+                                "datecreated": {
+                                  "type": "string",
+                                  "format": "date",
+                                  "example": "2021-07-14"
+                                },
+                                "groupid": {
+                                  "type": "number",
+                                  "example": 0
+                                },
+                                "status": {
+                                  "type": "string",
+                                  "example": "Active"
+                                }
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "products": {
+                        "type": "object",
+                        "properties": {
+                          "product": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "id": {
+                                  "type": "number",
+                                  "example": 0
+                                },
+                                "status": {
+                                  "type": "string",
+                                  "example": "Active"
+                                },
+                                "domain": {
+                                  "type": "string",
+                                  "example": "test.domain.com"
+                                },
+                                "name": {
+                                  "type": "string",
+                                  "example": "POKT-NODE"
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "components": {
+      "securitySchemes": {
+        "connectorAuth": {
+          "type": "apikey",
+          "in": "header",
+          "name":"Authorization",
+          "x-source": {
+            "authflow-type":"OAuth1",
+            "authflow-input": [
+              {
+                "in": "query",
+                "name": "oauth_consumer_key",
+                "description": "Consumer Key",
+                "required": true,
+                "schema": {
+                  "type": "string",
+                  "example": "Kjkjdlkfhhjklylkjl39hjfhfa"
+                }
+              },
+              {
+                "in": "query",
+                "name": "consumer_secret",
+                "description": "Consumer Secret",
+                "required": true,
+                "schema": {
+                  "type": "string",
+                  "example": "Xc3hkah99ljlk3hjhjh8haklfhlj"
+                }
+              },
+              {
+                "in": "query",
+                "name": "oauth_token",
+                "description": "Token ID",
+                "required": true,
+                "schema": {
+                  "type": "string",
+                  "example": "abcdefgh"
+                }
+              },
+              {
+                "in": "query",
+                "name": "token_secret",
+                "required": true,
+                "description": "Token Secret",
+                "schema": {
+                  "type": "string",
+                  "example": "123456ABCDEF"
+                }
+              },
+              {
+                "in": "query",
+                "name": "realm",
+                "required": true,
+                "description": "Realm",
+                "schema": {
+                  "type": "string",
+                  "example": "123456ABCDEF"
+                }
+              },
+              {
+                "in": "query",
+                "name": "oauth_signature_method",
+                "required": true,
+                "description": "Signature Method",
+                "schema": {
+                  "type": "string",
+                  "example": "123456ABCDEF",
+                  "enum": [
+                    "PLAINTEXT",
+                    "HMAC-SHA1",
+                    "HMAC-SHA-1",
+                    "HmacSHA1",
+                    "HMAC-SHA-256",
+                    "SHA-256",
+                    "HMACSHA256",
+                    "RSA-SHA1",
+                    "SHA1withRSA",
+                    "RSA-SHA256",
+                    "SHA256withRSA"
+                  ]
+                }
+              }
+            ],
+            "authflow-response": {
+              "properties": {
+                "oauth_signature": {
+                  "type": "string",
+                  "description": "The Trust Your Supplier Token"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

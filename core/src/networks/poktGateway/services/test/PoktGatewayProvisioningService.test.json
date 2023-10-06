@@ -1,0 +1,84 @@
+{
+  "getUserByIdResponse": {
+    "id": "1",
+    "email": "email@blockspaces.com"
+  },
+  "poktGatewayUserConfirmed": {
+    "_id": { "$oid": "62dc518a23ac6c4cf23b671d" },
+    "userId": "e0f91ef7-89be-42cb-b03b-60496177040e",
+    "status": "CONFIRMED",
+    "source": "POKT",
+    "gatewayUserId": "62daf5deb37b8e00393f2cd0",
+    "loadBalancerId": "62dc51c2b37b8e00394270f7",
+    "appId": "62dc51c2b37b8e00394270f5"
+  },
+  "poktGatewayUserRequested": {
+    "_id": { "$oid": "62dc518a23ac6c4cf23b671d" },
+    "userId": "e0f91ef7-89be-42cb-b03b-60496177040e",
+    "status": "REQUESTED",
+    "source": "POKT"
+  },
+  "gatewayCreateUserResponse": {
+    "isFailure": false,
+    "data": {
+      "source": "POKT"
+    }
+  },
+  "gatewayCreateApplicationResponse": {
+    "isFailure": false,
+    "data": {
+      "chain": "",
+      "createdAt": "2022-07-19T16:50:06.560Z",
+      "updatedAt": "2022-07-19T16:50:06.480Z",
+      "name": "christest",
+      "id": "62d6e0beb37b8e003933917f",
+      "freeTier": true,
+      "gigastake": true,
+      "status": "IN_SERVICE",
+      "apps": [
+        {
+          "appId": "62d6e0beb37b8e003933917d",
+          "address": "14ba3e82ece42747ed023507917f1c1e4497dbf0",
+          "publicKey": "4ce3f05f6fb0d96ff528dfd7dc8b682175b9bd92bca097ec234369d78e85cc46"
+        }
+      ],
+      "user": "62d6d7f7b37b8e003933877c",
+      "gatewaySettings": {
+        "whitelistOrigins": [],
+        "whitelistUserAgents": [],
+        "whitelistContracts": [],
+        "whitelistMethods": [],
+        "whitelistBlockchains": [],
+        "secretKeyRequired": false,
+        "secretKey": "bbead883afd57f8e6bb04b2d8510db81"
+      },
+      "notificationSettings": {
+        "signedUp": false,
+        "quarter": false,
+        "half": false,
+        "threeQuarters": true,
+        "full": true
+      }
+    }
+  },
+  "userNetworkFindResults": [
+    {
+      "_id": { "$oid": "62dc518c23ac6c4cf23b6720" },
+      "networkId": "optimism",
+      "networkData": {
+        "gatewayNetworkData": {
+          "gatewayUserId": null,
+          "status": "REQUESTED",
+          "source": "POKT",
+          "loadBalancerId": null,
+          "appId": null,
+          "gatewaySettings": null,
+          "_id": { "$oid": "62dc518c23ac6c4cf23b6722" }
+        },
+        "_id": { "$oid": "62dc518c23ac6c4cf23b6721" }
+      },
+      "userId": "e0f91ef7-89be-42cb-b03b-60496177040e",
+      "type": "UserOptimismNetwork"
+    }
+  ]
+}

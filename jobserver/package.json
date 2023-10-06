@@ -1,0 +1,73 @@
+{
+  "name": "jobserver",
+  "version": "1.0.0",
+  "engines": {
+    "node": ">= 14.16.1"
+  },
+  "scripts": {
+    "build": "shx rm -rf ./dist/ && tsc --build && shx cp config/* ./dist/config/ ",
+    "test": "jest",
+    "start": "node ./dist/src/jobserver.js"
+  },
+  "devDependencies": {
+    "@jest/globals": "^27.4.6",
+    "@tsconfig/node14": "^1.0.1",
+    "@types/bcrypt": "^5.0.0",
+    "@types/cookie-parser": "^1.4.2",
+    "@types/cors": "^2.8.12",
+    "@types/dotenv": "^8.2.0",
+    "@types/google-protobuf": "^3.15.5",
+    "@types/jest": "^27.4.0",
+    "@types/mocha": "^9.0.0",
+    "@types/mongoose": "^5.11.97",
+    "@types/node": "^16.11.19",
+    "@types/supertest": "^2.0.11",
+    "@types/uuid": "^8.3.4",
+    "google-protobuf": "^3.19.3",
+    "jest": "^27.4.7",
+    "jest-ts-auto-mock": "^2.0.0",
+    "prettier": "^2.1.2",
+    "prettier-plugin-jsdoc": "^0.3.23",
+    "shx": "^0.3.4",
+    "supertest": "^6.2.1",
+    "ts-auto-mock": "^3.5.0",
+    "ts-jest": "^27.1.2",
+    "ts-node": "^10.4.0",
+    "typescript": "^4.5.4",
+    "util": "^0.12.4"
+  },
+  "dependencies": {
+    "@apidevtools/json-schema-ref-parser": "^9.0.7",
+    "@blockspaces/shared": "file:../shared/dist",
+    "@grpc/grpc-js": "^1.5.5",
+    "agenda": "^4.2.1",
+    "bcryptjs": "^2.4.3",
+    "cookie-parser": "~1.4.4",
+    "cors": "^2.8.5",
+    "debug": "~2.6.9",
+    "dotenv": "^10.0.0",
+    "eslint": "^8.7.0",
+    "express": "^4.17.2",
+    "guid-typescript": "^1.0.9",
+    "http-errors": "~1.6.3",
+    "jsonfile": "^6.1.0",
+    "jsonwebtoken": "^8.5.1",
+    "log4js": "^6.4.1",
+    "mongoose": "^5.13.14",
+    "node-vault": "^0.9.22",
+    "os": "^0.1.2",
+    "passport": "^0.4.1",
+    "path": "^0.12.7",
+    "qs": "^6.10.3",
+    "tslib": "^2.3.1",
+    "ttypescript": "^1.5.13",
+    "url-search-params": "^1.1.0",
+    "uuid": "^8.3.2",
+    "uuidv4": "^6.2.12"
+  },
+  "parserOptions": {
+    "project": "./tsconfig.json",
+    "ecmaVersion": 2018,
+    "sourceType": "module"
+  }
+}

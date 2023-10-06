@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "target": "es6",
+    "lib": [
+      "es5",
+      "dom",
+      "esnext",
+      "es6"
+    ],
+    "types": [
+      "cypress",
+      "node",
+      "cypress-localstorage-commands",
+      "cypress-plugin-stripe-elements",
+      "cypress-react-selector",
+      "cypress-iframe"
+    ]
+  },
+  "include": [
+    "**/*.ts",
+    "**/*.js"
+  ]
+}

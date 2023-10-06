@@ -1,0 +1,48 @@
+# Please deploy a AWS Load Balancer controller to your cluster prior to deploying this ingress controller. 
+# https://docs.aws.amazon.com/eks/latest/userguide/aws-load-balancer-controller.html
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    kubernetes.io/ingress.class: alb
+    alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:us-east-1:278428321638:certificate/bf8bc011-b26d-4bcd-b9be-7bd5972ee5f6
+    alb.ingress.kubernetes.io/scheme: internet-facing
+    alb.ingress.kubernetes.io/subnets: subnet-0f98db3298d03aaa6,subnet-0d2661460e2c0e212,subnet-06098d9a2a04d96e1,subnet-03d1835bf31cb41d5
+    alb.ingress.kubernetes.io/ssl-redirect: '443'
+    alb.ingress.kubernetes.io/listen-ports: '[{"HTTPS": 443}, {"HTTP": 80}]'
+    alb.ingress.kubernetes.io/healthcheck-protocol: HTTP
+    alb.ingress.kubernetes.io/healthcheck-port: traffic-port
+    alb.ingress.kubernetes.io/healthcheck-path: /api/platform/status
+    alb.ingress.kubernetes.io/healthcheck-interval-seconds: '15'
+    alb.ingress.kubernetes.io/healthcheck-timeout-seconds: '5'
+    alb.ingress.kubernetes.io/success-codes: '200'
+    alb.ingress.kubernetes.io/healthy-threshold-count: '4'
+    alb.ingress.kubernetes.io/unhealthy-threshold-count: '2'
+  name: bsc-ingress-staging
+  labels:
+    name: bsc-ingress-staging
+spec:
+  defaultBackend:
+    service:
+      name: bsc-frontend-staging
+      port:
+        number: 3001
+  rules:
+  - host: staging.blockspaces.dev
+    http:
+      paths:
+      - pathType: Prefix
+        path: "/api"
+        backend:
+          service:
+            name: bsc-core-staging
+            port: 
+              number: 3000
+      - pathType: Prefix
+        path: "/"
+        backend:
+          service:
+            name: bsc-frontend-staging
+            port: 
+              number: 3001

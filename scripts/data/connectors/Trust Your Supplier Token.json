@@ -1,0 +1,100 @@
+{
+  "id": "tysToken",
+  "groups": ["Chainyard", "Trust Your Supplier", "TYS Token"],
+  "name": "Chainyard Trust Your Supplier - TYS Token",
+  "type": "Authentication",
+  "description": "Chainyard Trust Your Supplier get TYS Token",
+  "system": "trustyoursupplier",
+  "specification": {
+    "openapi": "3.0.0",
+    "servers": [
+      {
+        "url": "https://integration-gateway.slyncer.com/v1/oauth2",
+        "x-environment": "Development"
+      }
+    ],
+    "info": {
+      "description": "Chainyard Trust Your Supplier Token API",
+      "version": "1.0.0",
+      "title": "Chainyard Trust Your Supplier Token API",
+      "contact": {
+        "email": "support@trustyoursupplier.com"
+      },
+      "license": {
+        "name": "Apache 2.0",
+        "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+      }
+    },
+    "paths": {
+      "/token": {
+        "post": {
+          "description": "Exchange IAM Token for a Food Trust token",
+          "parameters": [
+            {
+              "in": "query",
+              "name": "client_id",
+              "description": "Client ID",
+              "required": true,
+              "schema": {
+                "type": "string",
+                "example": "Kjkjdlkfhhjklylkjl39hjfhfa"
+              }
+            },
+            {
+              "in": "query",
+              "name": "client_secret",
+              "required": true,
+              "description": "Client Secret",
+              "schema": {
+                "type": "string",
+                "example": "Xc3hkah99ljlk3hjhjh8haklfhlj"
+              }
+            },
+            {
+              "in": "query",
+              "name": "username",
+              "description": "Username",
+              "required": true,
+              "schema": {
+                "type": "string",
+                "example": "abcdefgh"
+              }
+            },
+            {
+              "in": "query",
+              "name": "password",
+              "required": true,
+              "description": "Password",
+              "schema": {
+                "type": "string",
+                "example": "123456ABCDEF"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Trust Your Supplier token",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "object",
+                    "properties": {
+                      "access_token": {
+                        "type": "string",
+                        "description": "The Trust Your Supplier Token"
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "400": {
+              "description": "bad input parameter"
+            }
+          }
+        }
+      }
+    },
+    "components": {}
+  }
+}

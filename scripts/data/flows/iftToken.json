@@ -1,0 +1,321 @@
+{
+  "_id": {
+    "$oid": "61ca51b8e9d7a816bdc08dcc"
+  },
+  "name": "iftToken",
+  "parentId": [],
+  "isAuthFlow": true,
+  "steps": [
+    [
+      {
+        "id": "df052dfb-a58d-4914-9c5b-ff256264a327",
+        "connectorId": "initialdata",
+        "description": "",
+        "type": "Initial",
+        "activeMethod": {
+          "name": "/init",
+          "description": "",
+          "method": "GET",
+          "contentType": "application/json",
+          "parameters": [],
+          "responses": [
+            {
+              "responseCode": "INIT",
+              "description": "INIT",
+              "parameters": [
+                {
+                  "name": "org_id",
+                  "description": "",
+                  "in": "path",
+                  "type": "string",
+                  "required": false
+                },
+                {
+                  "name": "grant_type",
+                  "description": "",
+                  "in": "query",
+                  "type": "string",
+                  "required": false
+                },
+                {
+                  "name": "apikey",
+                  "description": "",
+                  "in": "query",
+                  "type": "string",
+                  "required": false
+                }
+              ]
+            }
+          ]
+        }
+      }
+    ],
+    [
+      {
+        "id": "873069c8-b32c-4ee9-8aec-64e6fbb699dc",
+        "connectorId": "iamToken",
+        "description": "IBM Food Trust API's to get provenance history ",
+        "type": "Authentication",
+        "activeMethod": {
+          "name": "/identity/token",
+          "method": "POST",
+          "description": "Get an IAM Token",
+          "contentType": "application/x-www-form-urlencoded",
+          "parameters": [
+            {
+              "name": "grant_type",
+              "description": "Grant Type",
+              "in": "",
+              "type": "string",
+              "required": "true",
+              "example": "urn:ibm:params:oauth:grant-type:apikey"
+            },
+            {
+              "name": "apikey",
+              "description": "API Key",
+              "in": "",
+              "type": "string",
+              "required": "true",
+              "example": "123456ABCDEF"
+            }
+          ],
+          "responses": [
+            {
+              "responseCode": "200",
+              "description": "search results matching criteria",
+              "parameters": [
+                {
+                  "name": "access_token",
+                  "description": "The Access Token",
+                  "in": "",
+                  "type": "string",
+                  "required": false,
+                  "example": "Example access_token"
+                },
+                {
+                  "name": "refresh_token",
+                  "description": "The Refresh Token",
+                  "in": "",
+                  "type": "string",
+                  "required": false,
+                  "example": "Example refresh_token"
+                },
+                {
+                  "name": "token_type",
+                  "description": "The type of Token",
+                  "in": "",
+                  "type": "string",
+                  "required": false,
+                  "example": "Bearer"
+                },
+                {
+                  "name": "expires_in",
+                  "description": "The number of seconds before the token expires",
+                  "in": "",
+                  "type": "number",
+                  "required": false,
+                  "example": 3600
+                },
+                {
+                  "name": "expiration",
+                  "description": "The timestamp of when the token expires",
+                  "in": "",
+                  "type": "number",
+                  "required": false,
+                  "example": 1632959014
+                },
+                {
+                  "name": "scope",
+                  "description": "The scope of the token contents",
+                  "in": "",
+                  "type": "string",
+                  "required": false,
+                  "example": "ibm openid"
+                }
+              ]
+            },
+            {
+              "responseCode": "400",
+              "description": "bad input parameter",
+              "parameters": []
+            }
+          ]
+        },
+        "server": {
+          "x-environment": "Development",
+          "_id": "61b0f5d1f3a9609dea80e2dd",
+          "url": "https://iam.cloud.ibm.com/"
+        }
+      }
+    ],
+    [
+      {
+        "id": "5cec6416-4480-4a27-afb3-958f669b0885",
+        "connectorId": "iftToken",
+        "description": "IBM Food Trust get IFT Token",
+        "type": "Authentication",
+        "activeMethod": {
+          "name": "/identity-proxy/exchange_token/v1/organization/{org_id}",
+          "method": "POST",
+          "description": "Exchange IAM Token for a Food Trust token",
+          "contentType": "application/json",
+          "parameters": [
+            {
+              "name": "org_id",
+              "description": "Organization",
+              "in": "path",
+              "type": "string",
+              "required": true,
+              "example": "Example org_id"
+            },
+            {
+              "name": "access_token",
+              "description": "IBM IAM Access Token",
+              "in": "query",
+              "type": "string",
+              "required": true,
+              "example": "Example access_token"
+            }
+          ],
+          "responses": [
+            {
+              "responseCode": "200",
+              "description": "Food Trust token",
+              "parameters": [
+                {
+                  "name": "onboarding_token",
+                  "description": "The Food Trust Token",
+                  "in": "",
+                  "type": "string",
+                  "required": false,
+                  "example": "Example onboarding_token"
+                }
+              ]
+            },
+            {
+              "responseCode": "400",
+              "description": "bad input parameter",
+              "parameters": []
+            }
+          ]
+        },
+        "server": {
+          "x-environment": "Development",
+          "_id": "61b0f5d2f3a9609dea80e2e2",
+          "url": "https://developer.food.ibm.com/ift/api"
+        }
+      }
+    ],
+    [
+      {
+        "id": "382f857e-0417-4460-aee0-df4c8cb23a07",
+        "connectorId": "response",
+        "description": "",
+        "type": "Response",
+        "activeMethod": {
+          "name": "/response",
+          "description": "",
+          "method": "GET",
+          "contentType": "application/json",
+          "parameters": [
+            {
+              "name": "token",
+              "description": "",
+              "in": "",
+              "type": "string",
+              "required": false
+            }
+          ],
+          "responses": []
+        }
+      }
+    ]
+  ],
+  "mappings": [
+    {
+      "source": {
+        "connectionId": "df052dfb-a58d-4914-9c5b-ff256264a327",
+        "method": "GET",
+        "endpoint": "/init",
+        "responseCode": "INIT",
+        "path": "grant_type"
+      },
+      "destination": {
+        "connectionId": "873069c8-b32c-4ee9-8aec-64e6fbb699dc",
+        "method": "POST",
+        "endpoint": "/identity/token",
+        "path": "grant_type"
+      }
+    },
+    {
+      "source": {
+        "connectionId": "df052dfb-a58d-4914-9c5b-ff256264a327",
+        "method": "GET",
+        "endpoint": "/init",
+        "responseCode": "INIT",
+        "path": "apikey"
+      },
+      "destination": {
+        "connectionId": "873069c8-b32c-4ee9-8aec-64e6fbb699dc",
+        "method": "POST",
+        "endpoint": "/identity/token",
+        "path": "apikey"
+      }
+    },
+    {
+      "source": {
+        "connectionId": "5cec6416-4480-4a27-afb3-958f669b0885",
+        "method": "POST",
+        "endpoint": "/identity-proxy/exchange_token/v1/organization/{org_id}",
+        "responseCode": "200",
+        "path": "onboarding_token"
+      },
+      "destination": {
+        "connectionId": "382f857e-0417-4460-aee0-df4c8cb23a07",
+        "method": "GET",
+        "endpoint": "/response",
+        "path": "token"
+      }
+    },
+    {
+      "source": {
+        "connectionId": "873069c8-b32c-4ee9-8aec-64e6fbb699dc",
+        "method": "POST",
+        "endpoint": "/identity/token",
+        "responseCode": "200",
+        "path": "access_token"
+      },
+      "destination": {
+        "connectionId": "5cec6416-4480-4a27-afb3-958f669b0885",
+        "method": "POST",
+        "endpoint": "/identity-proxy/exchange_token/v1/organization/{org_id}",
+        "path": "access_token"
+      }
+    },
+    {
+      "source": {
+        "connectionId": "df052dfb-a58d-4914-9c5b-ff256264a327",
+        "method": "GET",
+        "endpoint": "/init",
+        "responseCode": "INIT",
+        "path": "org_id"
+      },
+      "destination": {
+        "connectionId": "5cec6416-4480-4a27-afb3-958f669b0885",
+        "method": "POST",
+        "endpoint": "/identity-proxy/exchange_token/v1/organization/{org_id}",
+        "path": "org_id"
+      }
+    }
+  ],
+  "id": "iftToken",
+  "clientId": "BlockSpaces",
+  "type": "ROUNDTRIP",
+  "createdAt": {
+    "$date": "2021-12-27T23:52:24.286Z"
+  },
+  "updatedAt": {
+    "$date": "2021-12-28T00:03:21.918Z"
+  },
+  "__v": 0
+}

@@ -1,0 +1,112 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bsc-frontend-staging
+  namespace: bsc-staging
+spec:
+  selector:
+    matchLabels:
+      app: bsc-frontend-staging
+  template:
+    metadata:
+      labels:
+        app: bsc-frontend-staging
+    spec:
+      imagePullSecrets:
+      - name: blockspaces-dockerhub
+      containers:
+      - name: bsc-frontend-staging
+        image: blockspacesteam/bsc-frontend:3.63.0-staging
+        imagePullPolicy: Always
+        livenessProbe:
+          tcpSocket:
+            port: 3001
+          initialDelaySeconds: 10
+          periodSeconds: 15
+        resources:
+          limits:
+            memory: "768Mi"
+          requests:
+            memory: "768Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 3001
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bsc-core-staging
+  namespace: bsc-staging
+spec:
+  selector:
+    matchLabels:
+      app: bsc-core-staging
+  template:
+    metadata:
+      annotations:
+        vault.hashicorp.com/agent-inject: 'true'
+        vault.hashicorp.com/role: 'bsc-core-staging'
+        vault.hashicorp.com/agent-pre-populate-only: 'true'
+        vault.hashicorp.com/agent-inject-secret-.env.secrets: 'environments/data/staging'
+        vault.hashicorp.com/agent-inject-template-.env.secrets: |
+          {{ with secret "environments/data/staging" }}
+          AGENDA_CONNECT_STRING={{ .Data.data.AGENDA_CONNECT_STRING }}
+          AWS_SECRET_ACCESS_KEY={{ .Data.data.AWS_SECRET_ACCESS_KEY }}
+          BEN1_CHANNEL_MACAROON={{ .Data.data.BEN1_CHANNEL_MACAROON }}
+          BEN2_CHANNEL_MACAROON={{ .Data.data.BEN2_CHANNEL_MACAROON }}
+          CASBIN_DB_CONNECT_STRING={{ .Data.data.CASBIN_DB_CONNECT_STRING }}
+          CATALOG_DB_CONNECT_STRING={{ .Data.data.CATALOG_DB_CONNECT_STRING }}
+          CYCLR_CLIENT_SECRET={{ .Data.data.CYCLR_CLIENT_SECRET }}
+          CDE_PASSWORD={{ .Data.data.CDE_PASSWORD }}
+          CRYPTO_COMPARE_KEY={{ .Data.data.CRYPTO_COMPARE_KEY }}     
+          GOOGLE_RECAPTCHA_API_KEY={{ .Data.data.GOOGLE_RECAPTCHA_API_KEY }}          
+          HTTP_COOKIE_SIG={{ .Data.data.HTTP_COOKIE_SIG }}
+          HUBSPOT_API_TOKEN={{ .Data.data.HUBSPOT_API_TOKEN }}
+          IAM_APIKEY={{ .Data.data.IAM_APIKEY }}
+          JIRA_AUTH_TOKEN={{ .Data.data.JIRA_AUTH_TOKEN }}
+          MIGRATION_CONNECT_STRING={{ .Data.data.MIGRATION_CONNECT_STRING }}
+          MONGO_ADMIN_PASSWORD={{ .Data.data.MONGO_ADMIN_PASSWORD }}
+          MONGO_CONNECT_STRING={{ .Data.data.MONGO_CONNECT_STRING }}
+          NODE_MONITORING_DB_CONNECT_STRING={{ .Data.data.NODE_MONITORING_DB_CONNECT_STRING }}
+          OAUTH_SECRET={{ .Data.data.OAUTH_SECRET }}
+          POSTGRES_PASS={{ .Data.data.POSTGRES_PASS }}
+          PROTOCOL_ROUTER_PASSWORD={{ .Data.data.PROTOCOL_ROUTER_PASSWORD }}
+          QBO_BLOCKSPACE_SECRET={{ .Data.data.QBO_BLOCKSPACE_SECRET }}     
+          QBO_BLOCKSPACE_SECRET_CREDENTIAL_ID={{ .Data.data.QBO_BLOCKSPACE_SECRET_CREDENTIAL_ID }}
+          QBO_CLIENT_SECRET={{ .Data.data.QBO_CLIENT_SECRET }}
+          SERVICE_NOW_API_APP_SECRET={{ .Data.data.SERVICE_NOW_API_APP_SECRET }}
+          SERVICE_NOW_AUTH_SECRET={{ .Data.data.SERVICE_NOW_AUTH_SECRET }}
+          STRIPE_SECRET_KEY={{ .Data.data.STRIPE_SECRET_KEY }}
+          STRIPE_WEBHOOK_SECRET={{ .Data.data.STRIPE_WEBHOOK_SECRET }}          
+          VAULT_APP_SECRET_ID={{ .Data.data.VAULT_APP_SECRET_ID }}
+          WHMCS_SECRET={{ .Data.data.WHMCS_SECRET }}
+          SENDGRID_APIKEY={{ .Data.data.SENDGRID_APIKEY }}
+          GOOGLE_CLIENT_SECRET_ADMIN_PORTAL={{ .Data.data.GOOGLE_CLIENT_SECRET_ADMIN_PORTAL }}
+          MONGO_CONNECT_STRING_ADMIN_PORTAL={{ .Data.data.MONGO_CONNECT_STRING_ADMIN_PORTAL }}
+          {{ end }}
+      labels:
+        app: bsc-core-staging
+    spec:
+      serviceAccountName: vault
+      imagePullSecrets:
+      - name: blockspaces-dockerhub
+      containers:
+      - name: bsc-core-staging
+        image: blockspacesteam/bsc-core:3.63.0-staging
+        imagePullPolicy: Always
+        livenessProbe:
+          httpGet:
+            path: /api/platform/status
+            port: 3000
+          initialDelaySeconds: 30
+          periodSeconds: 15
+        resources:
+          limits:
+            memory: "1Gi"
+          requests:
+            memory: "1Gi"
+            cpu: "500m"
+        ports:
+        - containerPort: 3000

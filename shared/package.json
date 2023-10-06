@@ -1,0 +1,53 @@
+{
+  "name": "@blockspaces/shared",
+  "version": "3.100.0",
+  "description": "BlockSpaces shared library - code shared across frontend and backend applications",
+  "private": true,
+  "engines": {
+    "node": ">= 14.16.1"
+  },
+  "main": "dist/",
+  "scripts": {
+    "clean": "shx rm -rf ./dist && shx rm -rf *.tsbuildinfo",
+    "build": "npm run clean && npx tsc --build ./tsconfig.build.json && shx cp -r ./proto ./dist",
+    "test": "jest",
+    "bsc:install:clean": "npm ci --target_arch=x64",
+    "bsc:ci": "npm run bsc:install:clean",
+    "bsc:install": "npm i --target_arch=x64",
+    "prepproto": "node ./scripts/buildProtoFiles.js"
+  },
+  "files": [
+    "models"
+  ],
+  "dependencies": {
+    "@grpc/grpc-js": "^1.5.5",
+    "@nestjs/swagger": "^6.1.4",
+    "@tsconfig/node14": "^1.0.1",
+    "axios": "^0.27.2",
+    "bitcoin-address-validation": "^2.2.1",
+    "bolt11": "^1.4.0",
+    "class-transformer": "^0.5.1",
+    "class-validator": "^0.14.0",
+    "express": "^4.17.3",
+    "lodash": "^4.17.21",
+    "log4js": "^6.4.3",
+    "luxon": "^3.0.1"
+  },
+  "devDependencies": {
+    "@types/express-serve-static-core": "^4.17.28",
+    "@types/jest": "^27.5.2",
+    "@types/lodash": "^4.14.178",
+    "@types/luxon": "^2.3.2",
+    "@types/node": "^14.17.3",
+    "grpc_tools_node_protoc_ts": "^5.2.2",
+    "grpc-tools": "^1.11.1",
+    "jest": "^27.4.5",
+    "jest-ts-auto-mock": "^2.0.0",
+    "shx": "^0.3.4",
+    "ts-auto-mock": "^3.5.0",
+    "ts-jest": "^27.1.2",
+    "ttypescript": "^1.5.13",
+    "type-fest": "^2.19.0",
+    "typescript": "^4.8.2"
+  }
+}

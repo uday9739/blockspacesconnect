@@ -1,0 +1,53 @@
+{
+    "status": "success",
+    "data": {
+        "success": true,
+        "networkData": {
+            "context": "user-fleet",
+            "filter": {
+                "interval": "daily",
+                "dateRange": {
+                    "start": "2022-06-15T18:26:27.817Z",
+                    "end": "2022-06-15T18:26:27.817Z"
+                }
+            },
+            "units": "pokt",
+            "categories": [
+                "staked",
+                "unstaked"
+            ],
+            "totals": [
+                {
+                    "category": "staked",
+                    "amount": 100,
+                    "changedBy": 1,
+                    "changedByPct": 1
+                },
+                {
+                    "category": "unstaked",
+                    "amount": 200,
+                    "changedBy": 2,
+                    "changedByPct": 1
+                }
+            ],
+            "data": [
+                {
+                    "category": "staked",
+                    "values": [
+                        4383335.212760998,
+                        3036932.170187999,
+                        11813303.101842009
+                    ]
+                },
+                {
+                    "category": "unstaked",
+                    "values": [
+                        840404.0054459997,
+                        5048.516727999998,
+                        62025.908842
+                    ]
+                }
+            ]
+        }
+    }
+}
