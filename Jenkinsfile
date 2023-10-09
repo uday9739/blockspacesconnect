@@ -65,7 +65,7 @@ pipeline {
             sh '''
                 git add .
                 git commit -m "Copy folder from source to target"
-                git push
+                git push origin main
             '''
            
             }
