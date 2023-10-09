@@ -52,21 +52,18 @@ pipeline {
     steps {
         script {
             // Define the source and target directories
-            def sourceRepoDir = "${WORKSPACE}/sourceRepo/shared/"
+            def sourceRepoDir = "${WORKSPACE}/sourceRepo/shared"
             def targetRepoDir = "${WORKSPACE}/targetRepo/admin-api"
 
-            // Copy the contents from source to target directory
-            sh "cp -rf ${sourceRepoDir}/* ${targetRepoDir}/"
+            // Create the target directory if it doesn't exist
+            sh "mkdir -p ${targetRepoDir}"
 
-            // Commit and push the changes to the target repository
-            dir("${WORKSPACE}/targetRepo") {
-                gitAdd()
-                gitCommit(message: "Copy folder from source to target")
-                gitPush()
+            // Copy the entire source directory to the target directory
+            sh "cp -rf ${sourceRepoDir} ${targetRepoDir}/"
+
             }
         }
     }
-}
 
      }
 }
