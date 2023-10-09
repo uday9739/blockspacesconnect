@@ -55,14 +55,12 @@ pipeline {
             def sourceRepoDir = "${WORKSPACE}/sourceRepo/shared"
             def targetRepoDir = "${WORKSPACE}/targetRepo/admin-api"
 
-            // Create the target directory if it doesn't exist
-            sh "mkdir -p ${targetRepoDir}"
-
             // Copy the entire source directory to the target directory
             sh "cp -rf ${sourceRepoDir} ${targetRepoDir}/"
             
             // Commit and push the changes
             sh '''
+                cd ${targetRepoDir}
                 git add .
                 git commit -m "Copy folder from source to target"
                 git push origin main
