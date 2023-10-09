@@ -60,7 +60,14 @@ pipeline {
 
             // Copy the entire source directory to the target directory
             sh "cp -rf ${sourceRepoDir} ${targetRepoDir}/"
-
+            
+            // Commit and push the changes
+            sh '''
+                git add .
+                git commit -m "Copy folder from source to target"
+                git push
+            '''
+           
             }
         }
     }
