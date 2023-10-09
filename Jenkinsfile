@@ -68,6 +68,26 @@ pipeline {
                 }
             }
         }
+        stage('Copy Folder from Source to Target') {
+    steps {
+        script {
+            // Define the source and target directories
+            def sourceRepoDir = "${WORKSPACE}/sourceRepo/shared"
+            def targetRepoDir = "${WORKSPACE}/targetRepo/admin-api"
+
+            // Copy the contents from source to target directory
+            sh "cp -r ${sourceRepoDir}/* ${targetRepoDir}/"
+
+            // Commit and push the changes to the target repository
+            dir("${WORKSPACE}/targetRepo") {
+                gitAdd()
+                gitCommit(message: "Copy folder from source to target")
+                gitPush()
+            }
+        }
+    }
+}
+
      }
 }
 
