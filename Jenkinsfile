@@ -14,9 +14,10 @@ pipeline {
                     // Clone the SourceRepo
                     checkout([
                         $class: 'GitSCM',
-                        branches: [[name: 'master']], // Change to the branch you want to clone
+                        branches: [[name: 'main']], // Change to the branch you want to clone
                         userRemoteConfigs: [[
                             url: sourceRepoURL,
+             
                          ]]
                     ])
                 }
