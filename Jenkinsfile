@@ -56,7 +56,7 @@ pipeline {
             def targetRepoDir = "${WORKSPACE}/targetRepo/admin-api"
 
             // Copy the contents from source to target directory
-            sh "cp -r ${sourceRepoDir}/* ${targetRepoDir}/"
+            sh "cp -rf ${sourceRepoDir}/* ${targetRepoDir}/"
 
             // Commit and push the changes to the target repository
             dir("${WORKSPACE}/targetRepo") {
