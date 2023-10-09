@@ -48,26 +48,6 @@ pipeline {
                 }
             }
         }
-        stage('Copy Directory to TargetRepo') {
-            steps {
-                script {
-                    // Specify the source and target directories
-                    def sourceDirectory = 'blockspacesconnect/shared'
-                    def targetDirectory = 'admin-portal/admin-api/'
-
-                    // Copy the directory from SourceRepo to TargetRepo
-                    sh "cp -r ${sourceDirectory} ${targetDirectory}"
-
-                    // Commit and push changes to TargetRepo
-                    sh """
-                        cd ${targetDirectory}
-                        git add .
-                        git commit -m "Copy directory from SourceRepo"
-                        git push origin master
-                    """
-                }
-            }
-        }
         stage('Copy Folder from Source to Target') {
     steps {
         script {
