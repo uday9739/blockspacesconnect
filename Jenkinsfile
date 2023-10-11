@@ -12,7 +12,7 @@ pipeline {
                     dir('sourceRepo') {
                         checkout([
                             $class: 'GitSCM',
-                            branches: [[name: 'main']], // Change to the branch you want to clone
+                            branches: [[name: 'feature/admin-portal']],
                             userRemoteConfigs: [[
                                 url: sourceRepoURL,
                                 credentialsId: 'b38781a2-0e17-4055-ae1a-c54fff40b5dd'             
