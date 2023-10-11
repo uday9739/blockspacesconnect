@@ -7,9 +7,6 @@ pipeline {
                 script {
                     // Define your SourceRepo URL and credentials
                     def sourceRepoURL = 'https://github.com/uday9739/blockspacesconect.git'
-                                       
-                    // Specify the directory to be copied from SourceRepo
-                    def sourceDirectory = 'blockspacesconnect/shared'
 
                     // Clone the SourceRepo into a unique workspace subdirectory
                     dir('sourceRepo') {
@@ -30,9 +27,6 @@ pipeline {
                 script {
                     // Define your TargetRepo URL and credentials
                     def targetRepoURL = 'https://github.com/uday9739/admin-portal.git'
-                    
-                    // Specify the destination directory in TargetRepo
-                    def targetDirectory = 'admin-portal/admin-api/'
 
                     // Clone the TargetRepo into a unique workspace subdirectory
                     dir('targetRepo') {
@@ -48,20 +42,6 @@ pipeline {
                 }
             }
         }
-        stage('Copy Folder from Source to Target') {
-    steps {
-        script {
-            // Define the source and target directories
-            def sourceRepoDir = "${WORKSPACE}/sourceRepo/shared"
-            def targetRepoDir = "${WORKSPACE}/targetRepo/admin-api"
-
-            // Copy the entire source directory to the target directory
-            sh "cp -rf ${sourceRepoDir} ${targetRepoDir}/"
-            
-           
-            }
-        }
-    }
 
      }
 
